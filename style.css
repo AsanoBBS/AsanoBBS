@@ -1,0 +1,59 @@
+/* AsanoBBS - style.css */
+
+body {
+  background-color: lavenderblush;
+  font-family: arial, sans-serif;
+  text-align: center;
+  padding: calc(31.25% - 60px);
+}
+
+* {
+  /* ios等の対策 */
+  -webkit-text-size-adjust: 100%;
+  -webkit-appearance: none;
+}
+
+code,
+pre,
+#debug {
+  background-color: #292726;
+  color: ivory;
+  font-family: courier, monospace;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+/* input */
+input,
+button,
+textarea,
+select {
+  /* font-familyを継承しないので、継承させる */
+  font-family: inherit;
+  /* iOSの角丸をリセット */
+  border-radius: 0;
+  /* box-size */
+  box-sizing: border-box;
+  /* 文字の大きさ iOSでズームさせないために16px以上を指定 */
+  font-size: 16px;
+}
+
+
+/* 万能class */
+
+.block {
+  text-align: left;
+  margin: 0 auto;
+}
+
+.hide {
+  visibility: hidden;
+  position: absolute;
+}
+
+.emphasis {
+  color: red;
+  text-decoration: underline;
+  font-weight: bold;
+}
