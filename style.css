@@ -13,6 +13,21 @@ body {
   -webkit-appearance: none;
 }
 
+/* icon */
+img.icon {
+  width: 40px;
+  hight: 40px;
+}
+img.icon:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+img.icon:active {
+  position: relative;
+  top: 3px;
+}
+
+/* code */
 code,
 pre,
 #debug {
