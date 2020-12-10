@@ -17,8 +17,8 @@ body {
 img.icon {
   width: 40px;
   hight: 40px;
-  object-fit:cover;
-  border-radius:50%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 img.icon:hover {
   opacity: 0.5;
