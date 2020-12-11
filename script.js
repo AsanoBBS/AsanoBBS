@@ -107,11 +107,8 @@ function start() {
 
 // on google signin
 function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  debug('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  debug('Name: ' + profile.getName());
-  debug('Image URL: ' + profile.getImageUrl());
-  debug('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  let profile = googleUser.getBasicProfile();
+  debug("Googleログイン成功！");
   debug("googleUser: " + JSON.stringify(googleUser, null, 2));
 }
 
