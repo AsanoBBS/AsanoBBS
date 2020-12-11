@@ -63,6 +63,7 @@ header ul li.headertitle {
   font-size: 32px;
   overflow: hidden;
   text-align: left;
+  line-height: 40px;
 }
 header ul li.myname {
   overflow: hidden;
