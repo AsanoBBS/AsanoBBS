@@ -43,8 +43,8 @@ header ul li.menu {
   width: auto;
 }
 header ul li.menu img {
-  height: 100%;
-  width: auto;
+  height: 40px;
+  width: 40px;
 }
 header ul li.headertitle {
   font-size: 40px;
