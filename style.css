@@ -16,6 +16,15 @@ body {
   padding: 0;
 }
 
+/* リンクの装飾を無くす */
+a:link, a:visited, a:hover, a:active {
+  color: inherit;
+  text-decoration: inherit;
+}
+a:hover {
+  text-decoration: underline;
+}
+
 /* footer */
 header {
   position: fixed;
