@@ -48,15 +48,18 @@ header ul li.menu img {
   width: 40px;
 }
 header ul li.headertitle {
-  font-size: 40px;
+  font-size: 32px;
   overflow: hidden;
   text-align: left;
+  right: 40%;
 }
 header ul li.myname {
   overflow: hidden;
   text-align: right;
+  left: 60%;
 }
 header ul li.myicon {
+  right: 0;
   text-align: right;
 }
 
