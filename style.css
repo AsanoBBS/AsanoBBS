@@ -38,6 +38,10 @@ header ul li {
   margin: 0;
   padding: 4px;
 }
+header ul li.menu {
+  text-align: left;
+  width: auto;
+}
 header ul li.menu img {
   height: 100%;
   width: auto;
@@ -53,6 +57,7 @@ header ul li.myname {
 }
 header ul li.myicon {
   width: auto;
+  text-align: right;
 }
 
 /* icon */
