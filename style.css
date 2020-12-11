@@ -59,10 +59,10 @@ header ul li.headertitle {
 }
 header ul li.myname {
   overflow: hidden;
-  text-align: right;
+  /*text-align: right;*/
 }
 header ul li.myicon {
-  text-align: right;
+  /*text-align: right;*/
 }
 
 /* icon */
