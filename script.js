@@ -112,8 +112,7 @@ function onSignIn(googleUser) {
   debug('Name: ' + profile.getName());
   debug('Image URL: ' + profile.getImageUrl());
   debug('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-  debug("googleUser: " + googleUser);
-  debug("profile: " + profile);
+  debug("googleUser: " + JSON.stringify(googleUser));
 }
 
 function forCSS() {
