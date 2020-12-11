@@ -109,7 +109,7 @@ function start() {
 function onSignIn(googleUser) {
   let profile = googleUser.getBasicProfile();
   debug("Googleログイン成功！");
-  debug("googleUser: " + JSON.stringify(googleUser, null, 2));
+  debug("\"googleUser\": " + JSON.stringify(googleUser, null, 2));
 }
 
 function forCSS() {
