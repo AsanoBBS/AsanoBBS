@@ -51,14 +51,6 @@ header ul li {
   margin: 0;
   padding: 4px;
 }
-header ul li.menu {
-  text-align: left;
-  width: 48px;
-}
-header ul li.menu img {
-  height: 40px;
-  width: 40px;
-}
 header ul li.headertitle {
   font-size: 32px;
   overflow: hidden;
