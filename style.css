@@ -11,6 +11,9 @@ body {
   /* ios等の対策 */
   -webkit-text-size-adjust: 100%;
   -webkit-appearance: none;
+  /* デフォルトの余白はなくしておく */
+  margin: 0;
+  padding: 0;
 }
 
 /* footer */
@@ -41,7 +44,7 @@ header ul li {
 }
 header ul li.menu {
   text-align: left;
-  width: auto;
+  width: 48px;
 }
 header ul li.menu img {
   height: 40px;
@@ -56,10 +59,8 @@ header ul li.headertitle {
 header ul li.myname {
   overflow: hidden;
   text-align: right;
-  left: 60%;
 }
 header ul li.myicon {
-  right: 0;
   text-align: right;
 }
 
