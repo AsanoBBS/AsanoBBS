@@ -99,9 +99,12 @@ function start() {
   if (urlQueries.debug) debugMode = true;
   // デバッグモード引き継ぎ
   if (debugMode) htmlForEach(document.getElementsByTagName("a"), element => {
-    let queries = getUrlQueriesByUrl(element.href);
-    if (queries == {}) element.href += "?debug=true";
-    else element.href += "&debug=true";
+    const url = element.href;
+    
+    let queries = getUrlQueriesByUrl(url);
+    //if (queries == {}) element.href += "?debug=true";
+    //else element.href += "&debug=true";
+    debug("queries: " + queries);
   });
 
   // windowサイズによって変えるやつ
