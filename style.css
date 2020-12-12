@@ -59,8 +59,8 @@ header ul li.headertitle {
   width: auto;
 }
 header ul li.myname {
-  overflow: hidden;
-  /*text-align: right;*/
+  /*overflow: hidden;*/
+  text-align: right;
 }
 header ul li.myicon {
   /*text-align: right;*/
