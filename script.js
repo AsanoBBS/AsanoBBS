@@ -34,7 +34,7 @@ const getUrlQueries = () => {
   });
   return queries;
 };
-const getUrlQueries = url => {
+const getUrlQueriesByUrl = url => {
   let queriePos = url.indexOf("?");
   if (queriePos === -1) return {};
   let querieStr = url.substring(queriePos);
@@ -98,11 +98,11 @@ function start() {
   const urlQueries = getUrlQueries();
   if (urlQueries.debug) debugMode = true;
   // デバッグモード引き継ぎ
-  //if (debugMode) htmlForEach(getElementsByTagName("a"), element => {
-    //let queries = getUrlQueries(element.href);
-    //if (queries) element.href += "&debug=true";
-    //else element.href += "?debug=true";
-  //});
+  if (debugMode) htmlForEach(getElementsByTagName("a"), element => {
+    let queries = getUrlQueriesByUrl(element.href);
+    if (queries) element.href += "&debug=true";
+    else element.href += "?debug=true";
+  });
 
   // windowサイズによって変えるやつ
   forCSS();
