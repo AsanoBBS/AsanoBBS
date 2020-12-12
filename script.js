@@ -106,13 +106,13 @@ function start() {
   if (debugMode) htmlForEach(document.getElementsByTagName("a"), element => {
     const url = element.href;
     if (
-      url.startsWith("http://") ||
-      url.startsWith("https://") ||
-      url.startsWith("//")
+      (url.startsWith("http://") && !url.startsWith("http://asanobbs.github.io")) ||
+      (url.startsWith("https://") && !url.startsWith("https://romangames.github.io")) ||
+      (url.startsWith("//") && !url.startsWith("//asanobbs.github.io"))
     ) return;
     let queries = getUrlQueriesByUrl(url);
-    if (isEmptyObj(queries)) element.href += "?debug=true";
-    else element.href += "&debug=true";
+    //if (isEmptyObj(queries)) element.href += "?debug=true";
+    //else element.href += "&debug=true";
     debug("\"queries\": " + JSON.stringify(queries));
   });
 
