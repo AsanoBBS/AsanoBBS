@@ -4,7 +4,7 @@ body {
   background-color: lavenderblush;
   font-family: arial, sans-serif;
   text-align: center;
-  padding: 40px calc(31.25% - 60px);
+  padding: 96px calc(31.25% - 60px);
 }
 
 * {
