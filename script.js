@@ -106,19 +106,15 @@ function start() {
   if (debugMode) htmlForEach(document.getElementsByTagName("a"), element => {
     const url = element.href;
     debug("check \"" + url + "\"");
-    //try {
     if (
       (url.startsWith("http://") && !url.startsWith("http://asanobbs.github.io")) ||
       (url.startsWith("https://") && !url.startsWith("https://asanobbs.github.io")) ||
       (url.startsWith("//") && !url.startsWith("//asanobbs.github.io"))
     ) return;
-    /*} catch (e) {
-      debug("error: " + e.message);
-    }*/
     debug("yes!");
     let queries = getUrlQueriesByUrl(url);
-    //if (isEmptyObj(queries)) element.href += "?debug=true";
-    //else element.href += "&debug=true";
+    if (isEmptyObj(queries)) element.href += "?debug=true";
+    else element.href += "&debug=true";
     debug("\"queries\": " + JSON.stringify(queries));
   });
 
