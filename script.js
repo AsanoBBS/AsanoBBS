@@ -105,11 +105,13 @@ function start() {
   // デバッグモード引き継ぎ
   if (debugMode) htmlForEach(document.getElementsByTagName("a"), element => {
     const url = element.href;
+    debug("check \"" + url + "\");
     if (
       (url.startsWith("http://") && !url.startsWith("http://asanobbs.github.io")) ||
       (url.startsWith("https://") && !url.startsWith("https://romangames.github.io")) ||
       (url.startsWith("//") && !url.startsWith("//asanobbs.github.io"))
     ) return;
+    debug("yes!");
     let queries = getUrlQueriesByUrl(url);
     //if (isEmptyObj(queries)) element.href += "?debug=true";
     //else element.href += "&debug=true";
