@@ -100,8 +100,8 @@ function start() {
   // デバッグモード引き継ぎ
   if (debugMode) htmlForEach(getElementsByTagName("a"), element => {
     let queries = getUrlQueries(element.href);
-    if (queries) element.href += "&debug=true";
-    else element.href += "?debug=true";
+    //if (queries) element.href += "&debug=true";
+    //else element.href += "?debug=true";
   });
 
   // windowサイズによって変えるやつ
