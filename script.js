@@ -37,7 +37,7 @@ const getUrlQueries = () => {
 const getUrlQueriesByUrl = url => {
   let queriePos = url.indexOf("?");
   if (queriePos === -1) return {};
-  let querieStr = url.substring(queriePos);
+  let querieStr = url.substring(queriePos + 1);
   let queries = {};
   queryStr.split("&").forEach(queryStr => {
     let queryArr = queryStr.split("=");
@@ -99,9 +99,9 @@ function start() {
   if (urlQueries.debug) debugMode = true;
   // デバッグモード引き継ぎ
   if (debugMode) htmlForEach(getElementsByTagName("a"), element => {
-    let queries = getUrlQueriesByUrl(element.href);
-    if (queries) element.href += "&debug=true";
-    else element.href += "?debug=true";
+    //let queries = getUrlQueriesByUrl(element.href);
+    //if (queries == {}) element.href += "?debug=true";
+    //else element.href += "&debug=true";
   });
 
   // windowサイズによって変えるやつ
