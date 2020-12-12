@@ -104,7 +104,7 @@ function start() {
     let queries = getUrlQueriesByUrl(url);
     //if (queries == {}) element.href += "?debug=true";
     //else element.href += "&debug=true";
-    debug("queries: " + queries);
+    debug("\"queries\": " + JSON.stringify(queries));
   });
 
   // windowサイズによって変えるやつ
