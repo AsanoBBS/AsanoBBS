@@ -21,6 +21,11 @@ const request = (path, type, object) =>
     },
     body: JSON.stringify(object)
   }).then(res => res.json());
+// object空判定
+const isEmptyObj = obj => {
+  for (let i in obj) return false;
+  return true;
+}
 // htmlElementsのforEach
 const htmlForEach = (html, func) => Array.prototype.forEach.call(html, func);
 // URLクエリ
@@ -100,10 +105,14 @@ function start() {
   // デバッグモード引き継ぎ
   if (debugMode) htmlForEach(document.getElementsByTagName("a"), element => {
     const url = element.href;
-    
+    if (
+      url.startsWith("http://") ||
+      url.startsWith("https://") ||
+      url.startsWith("//")
+    ) return;
     let queries = getUrlQueriesByUrl(url);
-    //if (queries == {}) element.href += "?debug=true";
-    //else element.href += "&debug=true";
+    if (isEmptyObj(queries)) element.href += "?debug=true";
+    else element.href += "&debug=true";
     debug("\"queries\": " + JSON.stringify(queries));
   });
 
