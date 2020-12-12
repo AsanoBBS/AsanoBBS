@@ -98,11 +98,11 @@ function start() {
   const urlQueries = getUrlQueries();
   if (urlQueries.debug) debugMode = true;
   // デバッグモード引き継ぎ
-  //if (debugMode) htmlForEach(getElementsByTagName("a"), element => {
-    //let queries = getUrlQueriesByUrl(element.href);
-    //if (queries == {}) element.href += "?debug=true";
-    //else element.href += "&debug=true";
-  //});
+  if (debugMode) htmlForEach(document.getElementsByTagName("a"), element => {
+    let queries = getUrlQueriesByUrl(element.href);
+    if (queries == {}) element.href += "?debug=true";
+    else element.href += "&debug=true";
+  });
 
   // windowサイズによって変えるやつ
   forCSS();
