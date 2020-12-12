@@ -23,7 +23,7 @@ const request = (path, type, object) =>
   }).then(res => res.json());
 // htmlElementsのforEach
 const htmlForEach = (html, func) => Array.prototype.forEach.call(html, func);
-// URLクエリ取得＆分解
+// URLクエリ
 const getUrlQueries = () => {
   const queryStr = window.location.search.slice(1);
   let queries = {};
@@ -34,6 +34,17 @@ const getUrlQueries = () => {
   });
   return queries;
 };
+const getUrlQueries = url => {
+  let queriePos = url.indexOf("?");
+  if (queriePos === -1) return {};
+  let querieStr = url.substring(queriePos);
+  let queries = {};
+  queryStr.split("&").forEach(queryStr => {
+    let queryArr = queryStr.split("=");
+    queries[queryArr[0]] = queryArr[1];
+  });
+  return queries;
+}
 // 文字列に１行書き足す
 const addLine = (str, line, newLineCode = "\n") =>
   str + (str == "" ? "" : newLineCode) + line;
@@ -82,9 +93,17 @@ function debug(msg) {
 }
 
 function start() {
+
   // URLクエリ取得
   const urlQueries = getUrlQueries();
   if (urlQueries.debug) debugMode = true;
+  // デバッグモード引き継ぎ
+  if (debugMode) htmlForEach(getElementsByTagName("a"), element => {
+    let queries = getUrlQueries(element.href);
+    if (queries) element.href += "&debug=true";
+    else element.href += "?debug=true";
+  });
+
   // windowサイズによって変えるやつ
   forCSS();
   window.addEventListener("load", e => {
@@ -93,6 +112,7 @@ function start() {
   window.addEventListener("resize", e => {
     forCSS();
   });
+
   // ページ毎
   const path = location.pathname;
   debug("path: " + path);
@@ -103,6 +123,7 @@ function start() {
       }
       break;
   }
+
 }
 
 // on google signin
