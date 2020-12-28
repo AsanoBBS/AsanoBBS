@@ -140,9 +140,10 @@ function start() {
 
 }
 
+let googleUser = null;
 // on google signin
-function onSignIn(googleUser) {
-  let profile = googleUser.getBasicProfile();
+function onSignIn(user) {
+  googleUser = user;
   debug("Googleログイン成功！");
   debug("\"googleUser\": " + JSON.stringify(googleUser, null, 2));
 }
