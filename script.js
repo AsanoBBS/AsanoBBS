@@ -151,7 +151,7 @@ try{
         element.src = googleUser.wt.hK;
     }
   );
-}catch(e){debug(e);}
+}catch(e){debug(e.message);}
   debug("Googleログイン成功！");
   debug("\"googleUser\": " + JSON.stringify(googleUser, null, 2));
 }
