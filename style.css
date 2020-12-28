@@ -1,10 +1,15 @@
 /* AsanoBBS - style.css */
 
+/* for var */
+:root {
+  --header-height: 48px;
+}
+
 body {
   background-color: lavenderblush;
   font-family: arial, sans-serif;
   text-align: center;
-  padding: 96px calc(31.25% - 60px);
+  padding: calc(48px + 48px) calc(31.25% - 60px) 96px;
 }
 
 * {
