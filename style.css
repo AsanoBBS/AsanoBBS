@@ -63,7 +63,7 @@ header ul li.headertitle {
   line-height: calc(var(--header-height) - 8px);
   width: auto;
 }
-header ul li.myicon {
+header ul li.headericon {
   text-align: right;
 }
 
