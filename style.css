@@ -58,12 +58,8 @@ header ul li.headertitle {
   line-height: 40px;
   width: auto;
 }
-header ul li.myname {
-  /*overflow: hidden;*/
-  text-align: right;
-}
 header ul li.myicon {
-  /*text-align: right;*/
+  text-align: right;
 }
 
 /* icon */
