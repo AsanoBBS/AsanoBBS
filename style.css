@@ -57,10 +57,10 @@ header ul li {
   padding: 4px;
 }
 header ul li.headertitle {
-  font-size: calc(var(--header-size) - 16px);
+  font-size: calc(var(--header-height) - 16px);
   overflow: hidden;
   text-align: left;
-  line-height: calc(var(--header-size) - 8px);
+  line-height: calc(var(--header-height) - 8px);
   width: auto;
 }
 header ul li.myicon {
