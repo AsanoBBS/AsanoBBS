@@ -9,7 +9,7 @@ body {
   background-color: lavenderblush;
   font-family: arial, sans-serif;
   text-align: center;
-  padding: calc(48px + 48px) calc(31.25% - 60px) 96px;
+  padding: calc(var(--header-height) + 48px) calc(31.25% - 60px) 96px;
 }
 
 * {
@@ -37,7 +37,7 @@ header {
   left: 0;
   overflow: hidden;
   width: 100%;
-  height: 48px;
+  height: var(--header-height);
   z-index: 16;
   background-color: #404040;
   color: white;
@@ -57,10 +57,10 @@ header ul li {
   padding: 4px;
 }
 header ul li.headertitle {
-  font-size: 32px;
+  font-size: calc(var(--header-size) - 16px);
   overflow: hidden;
   text-align: left;
-  line-height: 40px;
+  line-height: calc(var(--header-size) - 8px);
   width: auto;
 }
 header ul li.myicon {
