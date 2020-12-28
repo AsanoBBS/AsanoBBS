@@ -146,7 +146,7 @@ function onSignIn(user) {
   googleUser = user;
   htmlForEach(
     document.getElementsByClassName("myicon"),
-    dom => dom.src = googleUser.wt.;
+    dom => dom.src = googleUser.wt.hK;
   );
   debug("Googleログイン成功！");
   debug("\"googleUser\": " + JSON.stringify(googleUser, null, 2));
