@@ -3,6 +3,7 @@
 /* for var */
 :root {
   --header-height: 48px;
+  --pcmenu-width: 100px;
 }
 
 body {
@@ -37,7 +38,7 @@ table {
   table-layout: fixed;
 }
 
-/* footer */
+/* header */
 header {
   position: fixed;
   top: 0;
@@ -68,6 +69,13 @@ header span {
 #headericon {
   right: 0;
 }
+
+/* main */
+.pcmain {
+  width: calc(100% - var(--pcmenu-width));
+}
+
+/* menu */
 
 /* icon */
 img.icon {
