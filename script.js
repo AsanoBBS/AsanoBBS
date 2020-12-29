@@ -56,33 +56,6 @@ const addLine = (str, line, newLineCode = "\n") =>
 const addLineObj = (obj, key, line) => (obj[key] = addLine(obj[key], line));
 const addLineInnerHTML = (element, line) =>
   (element.innerHTML = addLine(element.innerHTML, line, "<br />"));
-// class="" をいじる
-const className = {
-  list: function(element) {
-    return element.className.split(" ");
-  },
-  check: function(element, styleClass) {
-    return this.list(element).some(c => c == styleClass);
-  },
-  add: function(element, styleClass) {
-    if (!this.check(element, styleClass)) {
-      let classList = this.list(element);
-      classList.push(styleClass);
-      element.className = classList.join(" ");
-      return true;
-    }
-    return false;
-  },
-  remove: function(element, styleClass) {
-    if (this.check(element, styleClass)) {
-      element.className = this.list(element)
-        .filter(c => c != styleClass)
-        .join(" ");
-      return true;
-    }
-    return false;
-  }
-};
 // promiseラップ
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -129,6 +102,8 @@ function start() {
   } else {        // PC
     // headericonは隠す
     document.getElementById("headericon").classList.add("hide");
+    // mainの幅調整
+    document.getElementsByTagName("main")[0].classList.add("pcmain");
   }
 
   // windowサイズによって変えるやつ
