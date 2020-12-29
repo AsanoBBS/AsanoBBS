@@ -89,12 +89,12 @@ main {
   position: fixed;
   background-color: white;
 }
-.pcmenu {
+/*.pcmenu {
   width: var(--pcmenu-width);
   top: var(--header-height);
   right: 0;
   bottom: 0;
-}
+}*/
 .mobilemenu {
   width: 75%;
   top: 0;
