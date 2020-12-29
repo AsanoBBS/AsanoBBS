@@ -63,7 +63,7 @@ header table tr td.headertitle {
   position: relative;
   text-align: left;
   /*width: calc(100% - 48px);*/
-  background-color: red;
+  background-color: yellow;
   font-size: calc(var(--header-height) - 8px);
 }
 header table tr td.headericon {
