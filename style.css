@@ -78,6 +78,7 @@ header span {
 /* menu */
 #menu {
   position: fixed;
+  background-color: white;
 }
 .pcmenu {
   width: var(--pcmenu-width);
