@@ -49,6 +49,7 @@ header {
 header table tr td {
   margin: 0;
   padding: 4px;
+  height: var(--header-height);
 }
 header table tr td.headertitle {
   font-size: calc(var(--header-height) - 8px);
