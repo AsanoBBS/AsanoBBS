@@ -30,6 +30,12 @@ a:hover {
   text-decoration: underline;
 }
 
+/* 表の隙間を無くす */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 /* footer */
 header {
   position: fixed;
