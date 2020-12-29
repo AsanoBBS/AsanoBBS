@@ -46,24 +46,18 @@ header {
   padding: 0;
   text-align: left;
 }
-header ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-header ul li {
-  display: inline-block;
+header table tr td {
   margin: 0;
   padding: 4px;
 }
-header ul li.headertitle {
+header table tr td.headertitle {
   font-size: calc(var(--header-height) - 16px);
   overflow: hidden;
   text-align: left;
   line-height: calc(var(--header-height) - 8px);
   width: auto;
 }
-header ul li.headericon {
+header table tr td.headericon {
   text-align: right;
 }
 
