@@ -50,7 +50,6 @@ header table tr td {
   padding: 4px;
   height: var(--header-height);
   white-space: nowrap;
-  position: relative;
 }
 header table tr td.headertitle {
   font-size: calc(var(--header-height) - 8px);
