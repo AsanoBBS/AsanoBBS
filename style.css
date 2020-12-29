@@ -87,6 +87,7 @@ main {
 /* menu */
 #menu {
   position: fixed;
+  display: block;
   background-color: white;
 }
 .pcmenu {
