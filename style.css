@@ -3,7 +3,7 @@
 /* for var */
 :root {
   --header-height: 48px;
-  --pcmenu-width: 100px;
+  --pcmenu-width: 320px;
 }
 
 body {
@@ -76,6 +76,18 @@ header span {
 }
 
 /* menu */
+#menu {
+  position: fixed;
+}
+.pcmenu {
+  width: var(--pcmenu-width);
+  height: calc(100% - var(--header-height));
+  top: var(--header-height);
+  right: 0;
+}
+.mobilemenu {
+  width: 75%;
+}
 
 /* icon */
 img.icon {
