@@ -51,14 +51,15 @@ header table tr td {
   padding: 4px;
 }
 header table tr td.headertitle {
-  font-size: calc(var(--header-height) - 16px);
+  font-size: calc(var(--header-height) - 8px);
   overflow: hidden;
   text-align: left;
   line-height: calc(var(--header-height) - 8px);
-  width: auto;
+  width: calc(100% - 48px);
 }
 header table tr td.headericon {
   text-align: right;
+  width: 48px;
 }
 
 /* icon */
