@@ -60,12 +60,12 @@ header span {
   overflow: hidden;
   top: 0;
 }
-.headertitle {
+#headertitle {
   font-size: calc(var(--header-height) - 8px);
   line-height: 100%;
   left: 0;
 }
-.headericon {
+#headericon {
   right: 0;
 }
 
