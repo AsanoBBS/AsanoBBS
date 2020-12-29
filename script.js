@@ -98,12 +98,15 @@ function start() {
   // スマホチェック
   mobile = navigator.userAgent.match(/iPhone|Android.+Mobile/);
   if (mobile) {   // スマホ
-    
+    // menu
+    document.getElementsByTagName("menu")[0].classList.add("mobilemenu");
   } else {        // PC
     // headericonは隠す
     document.getElementById("headericon").classList.add("hide");
-    // mainの幅調整
+    // main
     document.getElementsByTagName("main")[0].classList.add("pcmain");
+    // menu
+    document.getElementsByTagName("menu")[0].classList.add("pcmenu");
   }
 
   // windowサイズによって変えるやつ
