@@ -87,6 +87,7 @@ const className = {
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 /* values */
+let mobile = false;
 let menu = false;
 
 /* functions */
@@ -120,6 +121,15 @@ function start() {
     else element.href += "&debug=true";
     debug("\"queries\": " + JSON.stringify(queries));
   });
+
+  // スマホチェック
+  mobile = navigator.userAgent.match(/iPhone|Android.+Mobile/);
+  if (mobile) {   // スマホ
+    
+  } else {        // PC
+    // headericonは隠す
+    document.getElementById("headericon").classList.add("hide");
+  }
 
   // windowサイズによって変えるやつ
   forCSS();
