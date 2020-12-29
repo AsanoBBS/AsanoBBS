@@ -3,14 +3,12 @@
 /* for var */
 :root {
   --header-height: 48px;
-  --pcmenu-width: 320px;
+  --pcmenu-width: /*320*/100px;
 }
 
 body {
   background-color: lavenderblush;
   font-family: arial, sans-serif;
-  text-align: center;
-  padding: calc(var(--header-height) + 48px) calc(31.25% - 60px) 96px;
 }
 
 * {
@@ -71,6 +69,10 @@ header span {
 }
 
 /* main */
+main {
+  text-align: center;
+  padding: calc(var(--header-height) + 48px) calc(31.25% - 60px) 96px;
+}
 .pcmain {
   width: calc(100% - var(--pcmenu-width));
 }
@@ -83,15 +85,15 @@ header span {
 }
 .pcmenu {
   width: var(--pcmenu-width);
-  height: calc(100% - var(--header-height));
   top: var(--header-height);
   right: 0;
+  bottom: 0;
 }
 .mobilemenu {
   width: 75%;
-  height: 100%;
   top: 0;
   left: 100%;
+  bottom: 0;
 }
 
 /* icon */
