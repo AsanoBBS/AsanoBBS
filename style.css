@@ -56,7 +56,7 @@ header span {
   position: absolute;
   margin: 0;
   padding: 4px;
-  height: var(--header-height);
+  height: calc(var(--header-height) - 8px);
   white-space: nowrap;
   overflow: hidden;
   top: 0;
