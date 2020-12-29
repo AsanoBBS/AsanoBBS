@@ -18,6 +18,8 @@ body {
   /* デフォルトの余白はなくしておく */
   margin: 0;
   padding: 0;
+  /* 位置指定を許可 */
+  position: relative;
 }
 
 /* リンクの装飾を無くす */
@@ -70,10 +72,13 @@ header span {
 
 /* main */
 main {
+  position: relative;
   text-align: center;
-  padding: calc(var(--header-height) + 48px) calc(31.25% - 60px) 96px;
+  top: var(--header-height);
+  padding: 48px calc(31.25% - 60px) 96px;
 }
 .pcmain {
+  left: 0;
   width: calc(100% - var(--pcmenu-width));
 }
 
