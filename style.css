@@ -55,8 +55,6 @@ header table tr td.headertitle {
   overflow: hidden;
   text-align: left;
   width: calc(100% - 48px);
-}
-header table tr td.headertitle a {
   font-size: calc(var(--header-height) - 8px);
   line-height: calc(var(--header-height) - 8px);
 }
