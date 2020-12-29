@@ -86,6 +86,9 @@ const className = {
 // promiseラップ
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 
+/* values */
+let menu = false;
+
 /* functions */
 
 const debugText = document.getElementById("debug");
@@ -127,12 +130,14 @@ function start() {
     forCSS();
   });
 
+  // メニュー
+  //document.getElementById("headericon").onclick();
+
   // ページ毎
   const path = location.pathname;
   debug("path: " + path);
   switch (path) {
-    case "/":
-      {
+    case "/": {
         
       }
       break;
