@@ -52,11 +52,13 @@ header table tr td {
   white-space: nowrap;
 }
 header table tr td.headertitle {
-  font-size: calc(var(--header-height) - 8px);
   overflow: hidden;
   text-align: left;
-  line-height: calc(var(--header-height) - 8px);
   width: calc(100% - 48px);
+}
+header table tr td.headertitle a {
+  font-size: calc(var(--header-height) - 8px);
+  line-height: calc(var(--header-height) - 8px);
 }
 header table tr td.headericon {
   text-align: right;
