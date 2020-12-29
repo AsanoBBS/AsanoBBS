@@ -61,7 +61,7 @@ header span {
   top: 0;
 }
 .headertitle {
-  font-size: var(--header-height);
+  font-size: calc(var(--header-height) - 8px);
   line-height: 100%;
   left: 0;
 }
