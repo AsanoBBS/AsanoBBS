@@ -62,6 +62,7 @@ header span {
 }
 .headertitle {
   font-size: var(--header-height);
+  line-height: 100%;
   left: 0;
 }
 .headericon {
