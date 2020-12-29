@@ -62,7 +62,7 @@ header table tr td.headertitle {
   overflow: hidden;
   position: relative;
   text-align: left;
-  width: /*calc(100% - 48px)*/100px;
+  //width: /*calc(100% - 48px)*/100px;
   background-color: red;
   font-size: calc(var(--header-height) - 8px);
 }
