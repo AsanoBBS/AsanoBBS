@@ -52,24 +52,23 @@ header {
   padding: 0;
   text-align: left;
 }
-header table tr td {
+header span {
+  position: absolute;
   margin: 0;
   padding: 4px;
   height: var(--header-height);
   white-space: nowrap;
-}
-header table tr td.headertitle {
   overflow: hidden;
-  position: relative;
-  text-align: left;
-  /*width: calc(100% - 48px);*/
-  background-color: yellow;
-  font-size: calc(var(--header-height) - 8px);
+  top: 0;
 }
-header table tr td.headericon {
-  text-align: right;
-  width: 48px;
+.headertitle {
+  background-color: yellow;
+  font-size: calc(var(--header-height) - 16px);
+  left: 0;
+}
+.headericon {
   background-color: blue;
+  right: 0;
 }
 
 /* icon */
