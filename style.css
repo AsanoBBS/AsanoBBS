@@ -74,14 +74,14 @@ header span {
 
 /* main */
 main {
-  position: relative;
+  position: absolute;
   text-align: center;
   top: var(--header-height);
   padding: 48px calc(31.25% - 60px) 96px;
 }
 .pcmain {
   left: 0;
-  /*width: calc(100% - var(--pcmenu-width));*/
+  width: calc(100% - var(--pcmenu-width));
 }
 
 /* menu */
