@@ -54,20 +54,17 @@ header {
 }
 header span {
   position: absolute;
-  margin: 0;
-  padding: 4px;
-  height: calc(var(--header-height) - 8px);
+  margin: 4px;
+  height: var(--header-height);
   white-space: nowrap;
   overflow: hidden;
   top: 0;
 }
 .headertitle {
-  background-color: yellow;
-  font-size: calc(var(--header-height) - 16px);
+  font-size: var(--header-height);
   left: 0;
 }
 .headericon {
-  background-color: blue;
   right: 0;
 }
 
