@@ -58,7 +58,6 @@ header table tr td.headertitle {
   width: /*calc(100% - 48px)*/100px;
   background-color: red;
   font-size: calc(var(--header-height) - 8px);
-  line-height: calc(var(--header-height) - 8px);
 }
 header table tr td.headericon {
   text-align: right;
