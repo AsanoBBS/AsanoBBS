@@ -70,6 +70,7 @@ header span {
 }
 #headericon {
   right: 0;
+  visibility: hidden;
 }
 
 /* main */
@@ -150,6 +151,9 @@ img.icon:active {
   width: 36px;
   height: 36px;
   padding: 2px;
+}
+img.myicon {
+  visibility: hidden;
 }
 
 /* code */
