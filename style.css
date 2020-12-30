@@ -79,7 +79,6 @@ main {
   top: var(--header-height);
   left: 0;
   right: 0;
-  background-color: rgba(0, 255, 255, 0.5);
   padding: 48px calc(31.25% - 60px) 96px;
 }
 .pcmain {
@@ -93,6 +92,7 @@ nav {
   position: fixed;
   display: block;
   background-color: white;
+  overflow: auto;
 }
 .pcnav {
   width: var(--pcnav-width);
