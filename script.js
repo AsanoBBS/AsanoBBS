@@ -170,13 +170,13 @@ function navAnimation() {
   if (navState === NavStates.HIDE) navMove--;
   debug("navMove: " + navMove);
   // reflect
-  document.getElementsByClassName("mobilenav").style.left =
+  document.getElementsByClassName("mobilenav")[0].style.left =
     (100 - 75 * navMove / 10) + "%";
   debug("[nav move] state: " + navState + ", left: " + (100 - 75 * navMove / 10) + "%");
   // next
   if (navMove == 0) {
     navState = NavStates.HIDDEN;
-    document.getElementById("navshowdark")[0].classList.add("hide");
+    document.getElementById("navshowdark").classList.add("hide");
   }
   else if (navMove == 10) navState = NavStates.SHOWED;
   else wait(40).then(navAnimation);
