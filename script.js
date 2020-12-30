@@ -170,7 +170,7 @@ function navAnimation() {
   if (navState === NavStates.HIDE) navMove--;
   debug("navMove: " + navMove);
   // reflect
-  document.getElementById("mobilenav").style.left =
+  document.getElementsByClassName("mobilenav").style.left =
     (100 - 75 * navMove / 10) + "%";
   debug("[nav move] state: " + navState + ", left: " + (100 - 75 * navMove / 10) + "%");
   // next
