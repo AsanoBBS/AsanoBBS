@@ -148,9 +148,9 @@ img.icon:hover {
 }
 img.icon:active {
   position: relative;
-  width: 36px;
-  height: 36px;
-  padding: 2px;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
 }
 img.myicon {
   visibility: hidden;
