@@ -191,7 +191,7 @@ let googleUser = null;
 // on google signin
 function onSignIn(user) {
   googleUser = user;
-  if (mobile) document.getElementById("headericon").classList.remove("hide");
+  if (mobile) document.getElementById("headericon").classList.remove("hide2");
   htmlForEach(
     document.getElementsByClassName("myicon"),
     element => {
