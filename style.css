@@ -90,6 +90,10 @@ main {
   display: block;
   background-color: white;
 }
+#menu * {
+  padding: auto;
+  background-color: green;
+}
 .pcmenu {
   width: var(--pcmenu-width);
   top: var(--header-height);
