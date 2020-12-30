@@ -77,10 +77,11 @@ main {
   position: absolute;
   text-align: center;
   top: var(--header-height);
+  left: 0;
+  right: 0;
   padding: 48px calc(31.25% - 60px) 96px;
 }
 .pcmain {
-  left: 0;
   right: var(--pcmenu-width);
   padding-left: calc(calc(calc(100% - var(--pcmenu-width)) * 0.3125) - 60px);
   padding-right: calc(calc(calc(100% - var(--pcmenu-width)) * 0.3125) - 60px);
