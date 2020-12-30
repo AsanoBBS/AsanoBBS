@@ -198,6 +198,9 @@ select {
   visibility: hidden;
   position: absolute;
 }
+.hide2 {
+  display: none;
+}
 
 .emphasis {
   color: red;
