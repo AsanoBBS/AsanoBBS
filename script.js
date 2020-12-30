@@ -70,7 +70,7 @@ const NavStates = {
 /* values */
 let mobile = false;
 let navState = NavStates.HIDDEN;
-let navMove = 0;  // 0(hidden) ~ 10(showed)
+let navMove = 0;  // 0(hidden) ~ 16(showed)
 
 /* functions */
 
@@ -137,7 +137,7 @@ function start() {
     debug("click show");
     if (navState === NavStates.HIDDEN) {
       document.getElementById("navshowdark").classList.remove("hide");
-      wait(40).then(navAnimation);
+      wait(25).then(navAnimation);
     }
     navState = NavStates.SHOW;
     debug("start show");
@@ -145,7 +145,7 @@ function start() {
   document.getElementById("navhide").onclick = () => {
     debug("click hide");
     if (navState === NavStates.SHOWED) {
-      wait(40).then(navAnimation);
+      wait(25).then(navAnimation);
     }
     navState = NavStates.HIDE;
     debug("start hide");
@@ -171,7 +171,7 @@ function navAnimation() {
   debug("navMove: " + navMove);
   // reflect
   document.getElementsByClassName("mobilenav")[0].style.left =
-    (100 - 75 * navMove / 10) + "%";
+    (100 - 75 * navMove / 16) + "%";
   debug("[nav move] state: " + navState + ", left: " + (100 - 75 * navMove / 10) + "%");
   // next
   if (navMove == 0) {
@@ -179,7 +179,7 @@ function navAnimation() {
     document.getElementById("navshowdark").classList.add("hide");
   }
   else if (navMove == 10) navState = NavStates.SHOWED;
-  else wait(40).then(navAnimation);
+  else wait(25).then(navAnimation);
 }
 
 let googleUser = null;
