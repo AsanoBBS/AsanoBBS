@@ -133,7 +133,7 @@ function start() {
   });
 
   // メニュー
-  document.getElementById("headericon").onclick = () => {
+  const onNavShow = () => {
     debug("click show");
     if (navState === NavStates.HIDDEN) {
       document.getElementById("navshowdark").classList.remove("hide");
@@ -142,7 +142,8 @@ function start() {
     navState = NavStates.SHOW;
     debug("start show");
   };
-  document.getElementById("navhide").onclick = () => {
+  document.getElementById("headericon").onclick = onNavShow;
+  const onNavHide = () => {
     debug("click hide");
     if (navState === NavStates.SHOWED) {
       wait(20).then(navAnimation);
@@ -150,6 +151,8 @@ function start() {
     navState = NavStates.HIDE;
     debug("start hide");
   };
+  document.getElementById("navhide").onclick = onNavHide;
+  document.getElementById("navshowdark").onklick = onNavHide;
 
   // ページ毎
   const path = location.pathname;
