@@ -178,7 +178,7 @@ function navAnimation() {
     navState = NavStates.HIDDEN;
     document.getElementById("navshowdark").classList.add("hide");
   }
-  else if (navMove == 10) navState = NavStates.SHOWED;
+  else if (navMove == 16) navState = NavStates.SHOWED;
   else wait(20).then(navAnimation);
 }
 
