@@ -70,7 +70,7 @@ const NavStates = {
 /* values */
 let mobile = false;
 let navState = NavStates.HIDDEN;
-let navMoveTimer = 0;
+let navMove = 0;  // 0(hidden) ~ 10(showed)
 
 /* functions */
 
@@ -132,11 +132,11 @@ function start() {
   // メニュー
   document.getElementById("headericon").onclick = () => {
     navState = NavStates.SHOW;
-    
+    if (navState === NavStates.HIDDEN) navAnimation();
   };
   document.getElementById("navhide").onclick = () => {
     navState = NavStates.HIDE;
-    
+    if (navState === NavStates.SHOWED) navAnimation();
   };
 
   // ページ毎
@@ -149,6 +149,19 @@ function start() {
       break;
   }
 
+}
+
+// nav animation
+function navAnimation() {
+  // move
+  if (navState === NavStates.SHOW) navMove++;
+  if (navState === NavStates.HIDE) navMove--;
+  // reflect
+  
+  // next
+  if (navMove == 0) navState = NavStates.HIDDEN;
+  else (navMove == 10) navState = NavStates.SHOWED;
+  else wait(40).then(navAnimation);
 }
 
 let googleUser = null;
