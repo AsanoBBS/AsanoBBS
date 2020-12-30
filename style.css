@@ -79,6 +79,7 @@ main {
   top: var(--header-height);
   left: 0;
   right: 0;
+  backgrond-color: 80808080;
   padding: 48px calc(31.25% - 60px) 96px;
 }
 .pcmain {
