@@ -137,7 +137,7 @@ function start() {
     debug("click show");
     if (navState === NavStates.HIDDEN) {
       document.getElementById("navshowdark").classList.remove("hide");
-      wait(25).then(navAnimation);
+      wait(20).then(navAnimation);
     }
     navState = NavStates.SHOW;
     debug("start show");
@@ -145,7 +145,7 @@ function start() {
   document.getElementById("navhide").onclick = () => {
     debug("click hide");
     if (navState === NavStates.SHOWED) {
-      wait(25).then(navAnimation);
+      wait(20).then(navAnimation);
     }
     navState = NavStates.HIDE;
     debug("start hide");
@@ -179,7 +179,7 @@ function navAnimation() {
     document.getElementById("navshowdark").classList.add("hide");
   }
   else if (navMove == 10) navState = NavStates.SHOWED;
-  else wait(25).then(navAnimation);
+  else wait(20).then(navAnimation);
 }
 
 let googleUser = null;
