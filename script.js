@@ -112,9 +112,7 @@ function start() {
     document.getElementsByTagName("nav")[0].classList.add("mobilenav");
   } else {        // PC
     mobile = false;
-    // headericonは隠す
-    document.getElementById("headericon").classList.add("hide");
-    // navhideも
+    // navhideを消す
     document.getElementById("navhide").classList.add("clear");
     // main
     document.getElementsByTagName("main")[0].classList.add("pcmain");
