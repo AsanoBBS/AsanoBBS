@@ -106,6 +106,7 @@ function start() {
 
   // スマホチェック
   mobile = navigator.userAgent.match(/iPhone|Android.+Mobile/);
+  debug("mobile: " + mobile);
   if (mobile) {   // スマホ
     // nav
     document.getElementsByTagName("nav")[0].classList.add("mobilenav");
@@ -131,6 +132,7 @@ function start() {
 
   // メニュー
   document.getElementById("headericon").onclick = () => {
+    debug("click show");
     navState = NavStates.SHOW;
     if (navState === NavStates.HIDDEN) {
       document.getElementById("navshowdark").classList.remove("hide");
@@ -138,6 +140,7 @@ function start() {
     }
   };
   document.getElementById("navhide").onclick = () => {
+    debug("click hide");
     navState = NavStates.HIDE;
     if (navState === NavStates.SHOWED) navAnimation();
   };
@@ -162,6 +165,7 @@ function navAnimation() {
   // reflect
   document.querySelector("#mobilenav").style.left =
     (100 - 75 * navMove / 10) + "%";
+  debug("[nav move] state: " + navMove + ", left: " + (100 - 75 * navMove / 10) + "%");
   // next
   if (navMove == 0) {
     navState = NavStates.HIDDEN;
