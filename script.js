@@ -106,11 +106,12 @@ function start() {
 
   // スマホチェック
   mobile = navigator.userAgent.match(/iPhone|Android.+Mobile/);
-  debug("mobile: " + mobile);
   if (mobile) {   // スマホ
+    mobile = true;
     // nav
     document.getElementsByTagName("nav")[0].classList.add("mobilenav");
   } else {        // PC
+    mobile = false;
     // headericonは隠す
     document.getElementById("headericon").classList.add("hide");
     // navhideも
@@ -120,6 +121,7 @@ function start() {
     // nav
     document.getElementsByTagName("nav")[0].classList.add("pcnav");
   }
+  debug("mobile: " + mobile);
 
   // windowサイズによって変えるやつ
   forCSS();
@@ -133,16 +135,18 @@ function start() {
   // メニュー
   document.getElementById("headericon").onclick = () => {
     debug("click show");
-    navState = NavStates.SHOW;
     if (navState === NavStates.HIDDEN) {
       document.getElementById("navshowdark").classList.remove("hide");
-      navAnimation();
+      wait(40).then(navAnimation);
     }
+    navState = NavStates.SHOW;
   };
   document.getElementById("navhide").onclick = () => {
     debug("click hide");
+    if (navState === NavStates.SHOWED) {
+      wait(40).then(navAnimation);
+    }
     navState = NavStates.HIDE;
-    if (navState === NavStates.SHOWED) navAnimation();
   };
 
   // ページ毎
