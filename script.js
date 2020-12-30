@@ -152,7 +152,7 @@ function start() {
     debug("start hide");
   };
   document.getElementById("navhide").onclick = onNavHide;
-  document.getElementById("navshowdark").onklick = onNavHide;
+  document.getElementById("navshowdark").onclick = onNavHide;
 
   // ページ毎
   const path = location.pathname;
