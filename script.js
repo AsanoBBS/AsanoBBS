@@ -99,7 +99,7 @@ function start() {
   mobile = navigator.userAgent.match(/iPhone|Android.+Mobile/);
   if (mobile) {   // スマホ
     // nav
-    document.getElementsByTagName("nav")[0].classList.add("mobilena");
+    document.getElementsByTagName("nav")[0].classList.add("mobilenav");
   } else {        // PC
     // headericonは隠す
     document.getElementById("headericon").classList.add("hide");
