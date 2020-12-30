@@ -93,6 +93,7 @@ nav {
   display: block;
   background-color: white;
   overflow: auto;
+  visibility: hidden;
 }
 .pcnav {
   width: var(--pcnav-width);
@@ -100,6 +101,7 @@ nav {
   right: 0;
   bottom: 0;
   z-index: 8;
+  visibility: visible;
 }
 .mobilenav {
   width: 75%;
@@ -107,6 +109,7 @@ nav {
   left: 100%;
   bottom: 0;
   z-index: 24;
+  visibility: visible;
 }
 #navhide {
   width: 100%;
