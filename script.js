@@ -132,7 +132,10 @@ function start() {
   // メニュー
   document.getElementById("headericon").onclick = () => {
     navState = NavStates.SHOW;
-    if (navState === NavStates.HIDDEN) navAnimation();
+    if (navState === NavStates.HIDDEN) {
+      document.getElementById("navshowdark").classList.remove("hide");
+      navAnimation();
+    }
   };
   document.getElementById("navhide").onclick = () => {
     navState = NavStates.HIDE;
@@ -159,7 +162,10 @@ function navAnimation() {
   // reflect
   
   // next
-  if (navMove == 0) navState = NavStates.HIDDEN;
+  if (navMove == 0) {
+    navState = NavStates.HIDDEN;
+    document.getElementById("navshowdark").classList.add("hide");
+  }
   else (navMove == 10) navState = NavStates.SHOWED;
   else wait(40).then(navAnimation);
 }
