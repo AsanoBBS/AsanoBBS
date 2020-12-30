@@ -82,8 +82,10 @@ main {
 .pcmain {
   left: 0;
   right: calc(100% - var(--pcmenu-width));
-  padding-left: calc(calc(calc(100% - var(--pcmenu-width)) * 0.3125) - 60px);
+  /*padding-left: calc(calc(calc(100% - var(--pcmenu-width)) * 0.3125) - 60px);
   padding-right: calc(calc(calc(100% - var(--pcmenu-width)) * 0.3125) - 60px);
+  */padding-left: 0;
+  padding-right: 0;
 }
 
 /* menu */
