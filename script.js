@@ -189,9 +189,11 @@ let googleUser = null;
 // on google signin
 function onSignIn(user) {
   googleUser = user;
+  document.getElementById("headericon").style.visibility = "visible";
   htmlForEach(
     document.getElementsByClassName("myicon"),
     element => {
+        element.style.visibility = "visible";
         element.src = googleUser.wt.hK;
     }
   );
