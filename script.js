@@ -193,7 +193,7 @@ let googleUser = null;
 // on google signin
 function onSignIn(user) {
   googleUser = user;
-  if (mobile) document.getElementById("headericon").style.visibility = "visible";
+  if (mobile) document.getElementById("headericon").classList.remove("hide");
   htmlForEach(
     document.getElementsByClassName("myicon"),
     element => {
