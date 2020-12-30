@@ -123,6 +123,12 @@ nav {
   top: 4px;
   right: 4px;
 }
+#navshowdark {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
 /* icon */
 img.icon {
