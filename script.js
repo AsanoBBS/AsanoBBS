@@ -160,7 +160,8 @@ function navAnimation() {
   if (navState === NavStates.SHOW) navMove++;
   if (navState === NavStates.HIDE) navMove--;
   // reflect
-  
+  document.querySelector("#mobilenav").style.left =
+    (100 - 75 * navMove / 10) + "%";
   // next
   if (navMove == 0) {
     navState = NavStates.HIDDEN;
