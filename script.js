@@ -134,22 +134,26 @@ function start() {
 
   // メニュー
   const onNavShow = () => {
-    debug("click show");
-    if (navState === NavStates.HIDDEN) {
-      document.getElementById("navshowdark").classList.remove("hide");
-      wait(20).then(navAnimation);
+    if (mobile) {
+      debug("click show");
+      if (navState === NavStates.HIDDEN) {
+        document.getElementById("navshowdark").classList.remove("hide");
+        wait(20).then(navAnimation);
+      }
+      navState = NavStates.SHOW;
+      debug("start show");
     }
-    navState = NavStates.SHOW;
-    debug("start show");
   };
   document.getElementById("headericon").onclick = onNavShow;
   const onNavHide = () => {
-    debug("click hide");
-    if (navState === NavStates.SHOWED) {
-      wait(20).then(navAnimation);
+    if (mobile) {
+      debug("click hide");
+      if (navState === NavStates.SHOWED) {
+        wait(20).then(navAnimation);
+      }
+      navState = NavStates.HIDE;
+      debug("start hide");
     }
-    navState = NavStates.HIDE;
-    debug("start hide");
   };
   document.getElementById("navhide").onclick = onNavHide;
   document.getElementById("navshowdark").onclick = onNavHide;
@@ -189,7 +193,7 @@ let googleUser = null;
 // on google signin
 function onSignIn(user) {
   googleUser = user;
-  document.getElementById("headericon").style.visibility = "visible";
+  if (mobile) document.getElementById("headericon").style.visibility = "visible";
   htmlForEach(
     document.getElementsByClassName("myicon"),
     element => {
