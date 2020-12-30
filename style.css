@@ -149,8 +149,7 @@ img.icon:active {
   position: relative;
   width: 36px;
   height: 36px;
-  top: 2px;
-  left: 2px;
+  padding: 2px;
 }
 
 /* code */
