@@ -140,6 +140,7 @@ function start() {
       wait(40).then(navAnimation);
     }
     navState = NavStates.SHOW;
+    debug("start show");
   };
   document.getElementById("navhide").onclick = () => {
     debug("click hide");
@@ -147,6 +148,7 @@ function start() {
       wait(40).then(navAnimation);
     }
     navState = NavStates.HIDE;
+    debug("start hide");
   };
 
   // ページ毎
@@ -166,10 +168,11 @@ function navAnimation() {
   // move
   if (navState === NavStates.SHOW) navMove++;
   if (navState === NavStates.HIDE) navMove--;
+  debug("navMove: " + navMove);
   // reflect
   document.querySelector("#mobilenav").style.left =
     (100 - 75 * navMove / 10) + "%";
-  debug("[nav move] state: " + navMove + ", left: " + (100 - 75 * navMove / 10) + "%");
+  debug("[nav move] state: " + navState + ", left: " + (100 - 75 * navMove / 10) + "%");
   // next
   if (navMove == 0) {
     navState = NavStates.HIDDEN;
