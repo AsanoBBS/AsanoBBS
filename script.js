@@ -59,9 +59,18 @@ const addLineInnerHTML = (element, line) =>
 // promiseラップ
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 
+/* constant */
+const NavStates = {
+  HIDDEN: 0,
+  SHOW:   1,
+  SHOWED: 2,
+  HIDE:   3,
+};
+
 /* values */
 let mobile = false;
-let menu = false;
+let navState = NavStates.HIDDEN;
+let navMoveTimer = 0;
 
 /* functions */
 
@@ -103,6 +112,8 @@ function start() {
   } else {        // PC
     // headericonは隠す
     document.getElementById("headericon").classList.add("hide");
+    // navhideも
+    document.getElementById("navhide").classList.add("clear");
     // main
     document.getElementsByTagName("main")[0].classList.add("pcmain");
     // nav
@@ -119,7 +130,14 @@ function start() {
   });
 
   // メニュー
-  //document.getElementById("headericon").onclick();
+  document.getElementById("headericon").onclick = () => {
+    navState = NavStates.SHOW;
+    
+  };
+  document.getElementById("navhide").onclick = () => {
+    navState = NavStates.HIDE;
+    
+  };
 
   // ページ毎
   const path = location.pathname;
