@@ -133,24 +133,20 @@ function start() {
   // メニュー
   const onNavShow = () => {
     if (mobile) {
-      debug("click show");
       if (navState === NavStates.HIDDEN) {
         document.getElementById("navshowdark").classList.remove("hide");
         wait(20).then(navAnimation);
       }
       navState = NavStates.SHOW;
-      debug("start show");
     }
   };
   document.getElementById("headericon").onclick = onNavShow;
   const onNavHide = () => {
     if (mobile) {
-      debug("click hide");
       if (navState === NavStates.SHOWED) {
         wait(20).then(navAnimation);
       }
       navState = NavStates.HIDE;
-      debug("start hide");
     }
   };
   document.getElementById("navhide").onclick = onNavHide;
@@ -173,12 +169,10 @@ function navAnimation() {
   // move
   if (navState === NavStates.SHOW) navMove++;
   if (navState === NavStates.HIDE) navMove--;
-  debug("navMove: " + navMove);
   // reflect
   const per = (Math.cos(Math.PI * navMove / 10) + 1) / 2;
   document.getElementsByClassName("mobilenav")[0].style.left =
     (25 + 75 * per) + "%";
-  //debug("[nav move] state: " + navState + ", left: " + (25 + 75 * per) + "%");
   // next
   if (navMove == 0) {
     navState = NavStates.HIDDEN;
