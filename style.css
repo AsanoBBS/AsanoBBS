@@ -3,7 +3,7 @@
 /* for var */
 :root {
   --header-height: 48px;
-  --pcmenu-width: /*320*/100px;
+  --pcmenu-width: /*320*/48px;
 }
 
 body {
