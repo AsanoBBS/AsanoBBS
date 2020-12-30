@@ -175,7 +175,7 @@ function navAnimation() {
   // reflect
   document.getElementsByClassName("mobilenav")[0].style.left =
     (25 + 75 * Math.cos(Math.PI / 2 * navMove / 10)) + "%";
-  debug("[nav move] state: " + navState + ", left: " + (100 - 75 * navMove / 10) + "%");
+  debug("[nav move] state: " + navState + ", left: " + (25 + 75 * Math.cos(Math.PI / 2 * navMove / 10)) + "%");
   // next
   if (navMove == 0) {
     navState = NavStates.HIDDEN;
