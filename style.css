@@ -94,8 +94,9 @@ main {
   z-index: 24;
   background-color: white;
 }
-#menu div {
-  padding: auto;
+#menu * {
+  width: 100%;
+  height: 100%;
   background-color: green;
 }
 .pcmenu {
