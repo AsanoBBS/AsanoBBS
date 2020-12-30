@@ -70,7 +70,7 @@ const NavStates = {
 /* values */
 let mobile = false;
 let navState = NavStates.HIDDEN;
-let navMove = 0;  // 0(hidden) ~ 16(showed)
+let navMove = 0;  // 0(hidden) ~ 10(showed)
 
 /* functions */
 
@@ -171,14 +171,14 @@ function navAnimation() {
   debug("navMove: " + navMove);
   // reflect
   document.getElementsByClassName("mobilenav")[0].style.left =
-    (100 - 75 * navMove / 16) + "%";
+    (100 - 75 * navMove / 10) + "%";
   debug("[nav move] state: " + navState + ", left: " + (100 - 75 * navMove / 10) + "%");
   // next
   if (navMove == 0) {
     navState = NavStates.HIDDEN;
     document.getElementById("navshowdark").classList.add("hide");
   }
-  else if (navMove == 16) navState = NavStates.SHOWED;
+  else if (navMove == 10) navState = NavStates.SHOWED;
   else wait(20).then(navAnimation);
 }
 
