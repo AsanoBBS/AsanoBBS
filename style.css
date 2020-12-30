@@ -91,9 +91,10 @@ main {
 #menu {
   position: fixed;
   display: block;
+  z-index: 24;
   background-color: white;
 }
-#menu * {
+#menu div {
   padding: auto;
   background-color: green;
 }
@@ -108,7 +109,6 @@ main {
   top: 0;
   left: 100%;
   bottom: 0;
-  z-index: 24;
 }
 
 /* icon */
