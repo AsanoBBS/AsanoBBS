@@ -92,25 +92,22 @@ main {
 nav {
   position: fixed;
   display: block;
-  z-index: 24;
   background-color: white;
-}
-nav * {
-  width: 100%;
-  height: 100%;
-  background-color: green;
 }
 .pcnav {
   width: var(--pcnav-width);
-  top: var(--header-height);
+  top: 0;
   right: 0;
   bottom: 0;
+  padding-top: var(--header-height);
+  z-index: 8;
 }
 .mobilenav {
   width: 75%;
   top: 0;
   left: 100%;
   bottom: 0;
+  z-index: 24;
 }
 
 /* icon */
