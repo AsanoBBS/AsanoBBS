@@ -85,7 +85,7 @@ function debug(msg) {
 
 function start() {
 
-  debug('"cookie": ' + JSON.stringify(document.cookie));
+  debug('"cookie": ' + (document.cookie === undefined ? "undefined" : '"' + document.cookie + '"'));
 
   // URLクエリ取得
   const urlQueries = getUrlQueries();
