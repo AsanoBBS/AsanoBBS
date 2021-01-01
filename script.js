@@ -85,13 +85,15 @@ function debug(msg) {
 
 function start() {
 
+  debug('cookie: "' + document.cookie + '"');
+
   // URLクエリ取得
   const urlQueries = getUrlQueries();
   if (urlQueries.debug) debugMode = true;
   // デバッグモード引き継ぎ
   if (debugMode) htmlForEach(document.getElementsByTagName("a"), element => {
     const url = element.href;
-    debug("check \"" + url + "\"");
+    debug('check "' + url + '"');
     if (
       (url.startsWith("http://") && !url.startsWith("http://asanobbs.github.io")) ||
       (url.startsWith("https://") && !url.startsWith("https://asanobbs.github.io")) ||
@@ -101,7 +103,7 @@ function start() {
     let queries = getUrlQueriesByUrl(url);
     if (isEmptyObj(queries)) element.href += "?debug=true";
     else element.href += "&debug=true";
-    debug("\"queries\": " + JSON.stringify(queries));
+    debug('"queries": ' + JSON.stringify(queries));
   });
 
   // スマホチェック
@@ -195,9 +197,8 @@ function onSignIn(user) {
     }
   );
   debug("Googleログイン成功！");
-  debug("\"googleUser\": " + JSON.stringify(googleUser, null, 2));
-  googleUser.reloadAuthResponse()
-    .then(what => debug(JSON.stringify(what, null, 2)));
+  debug('"googleUser": ' + JSON.stringify(googleUser, null, 2));
+  debug('cookie: "' + document.cookie + '"');
 }
 
 function forCSS() {
