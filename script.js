@@ -85,7 +85,7 @@ function debug(msg) {
 
 function start() {
 
-  debug('cookie: "' + document.cookie + '"');
+  debug('"cookie": ' + JSON.stringify(document.cookie));
 
   // URLクエリ取得
   const urlQueries = getUrlQueries();
@@ -198,7 +198,7 @@ function onSignIn(user) {
   );
   debug("Googleログイン成功！");
   debug('"googleUser": ' + JSON.stringify(googleUser, null, 2));
-  debug('cookie: "' + document.cookie + '"');
+  debug('"cookie": ' + JSON.stringify(document.cookie));
 }
 
 function forCSS() {
