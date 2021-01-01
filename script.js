@@ -197,7 +197,7 @@ function onSignIn(user) {
   debug("Googleログイン成功！");
   debug("\"googleUser\": " + JSON.stringify(googleUser, null, 2));
   googleUser.reloadAuthResponse()
-    .then(what => debug(what));
+    .then(what => debug(JSON.stringify(what, null, 2)));
 }
 
 function forCSS() {
