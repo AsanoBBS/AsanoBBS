@@ -247,12 +247,29 @@ function login() {
 }
 
 // on google signin
-function onSignIn(user) {
+function onSignIn(googleUser) {
   debug("Googleログイン成功！");
-  debug('"googleUser": ' + JSON.stringify(googleUser, null, 2));
-  // check @asano.ed.jp
-  // get uuid_token
-  // save cookie
+  //debug('"googleUser": ' + JSON.stringify(googleUser, null, 2));
+  // 浅野生かどうかの事前確認
+  if (googleUser.getBasicProfile().getEmail().endsWith("@asano.ed.jp")) {
+    // get uuid_token by access_token
+    const access_token = googleUser.getAuthResponse().access_token;
+    request(`${GAS}?where=login&access_token=${access_token}`)
+      .then(res => {
+        uuid_token = res.uuid_token;
+        // TODO: cookieに保存 
+        
+        // GASへデータ取得
+        login();
+      })
+      .catch(e => {
+        debug(e.message);
+        window.alert("ログインに失敗しました。");
+      });
+  } else window.alert("浅野のgoogleアカウントでログインしてください");
+  // sign out
+  gapi.auth2.getAuthInstance().signOut()
+    .then(() => debug("g-signin2 signed out"));
 }
 
 function forCSS() {
