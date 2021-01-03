@@ -2,25 +2,55 @@
 
 let debugMode = false;
 
-/* library */
-const Cookie = this.Cookies;
-
 /* constant */
+const GAS = "https://script.google.com/macros/s/AKfycbzJmMih0WMHOfUHncUlwK7ez7bNr_le2dnCkNxYCo1b9ROMo9-g/exec";
 const SEC = sec => sec * 1000;
 const MIN = min => min * SEC(60);
 const HR = hr => hr * MIN(60);
 const DAY = day => day * HR(24);
 
+/* classes */
+class Users {
+  constructor(uuid_token) {
+    this.uuid_token = uuid_token;
+    this.users = {};
+  }
+  loadUser(id) {
+    return request(`${GAS}?where=profile&uuid_token=${this.uuid_token}&user_id=${id}`)
+      .then(res => {
+        this.users[res.user_id] = {
+          name: res.profile.name,
+          email: res.profile.email,
+          icon: res.profile.icon,
+        };
+        return this.users[id];
+      });
+  }
+}
+
 /* useful functions */
+// 文字列一致判定(大文字小文字無視)
+const equalsIgnoreCase = (a, b) =>
+  (a.toUpperCase() === b.toUpperCase());
+// 名前付きエラー生成
+const newErrorWithName = (name, message) => {
+  const error = new Error(message);
+  error.name = name;
+  return error;
+}
 // jsonリクエスト
-const request = (path, type, object) =>
-  fetch(path, {
-    method: type,
-    headers: {
-      "content-type": "application/json"
+const request = (url, method = "GET", reqBody = null) =>
+  fetch(url, {
+    "method": method,
+    "headers": {
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify(object)
-  }).then(res => res.json());
+    "body": (equalsIgnoreCase(method, "GET") ? undefined : JSON.stringify(reqBody)),
+  }).then(res => res.json())
+    .then(res => {
+      if (res.error) throw newErrorWithName(res.error.name, res.error.message);
+      return res;
+    });
 // object空判定
 const isEmptyObj = obj => {
   for (let i in obj) return false;
@@ -71,6 +101,9 @@ const NavStates = {
 let mobile = false;
 let navState = NavStates.HIDDEN;
 let navMove = 0;  // 0(hidden) ~ 10(showed)
+let uuid_token;
+let myProfile;
+let users;
 
 /* functions */
 
@@ -84,8 +117,6 @@ function debug(msg) {
 }
 
 function start() {
-
-  debug('"cookie": ' + (document.cookie === undefined ? "undefined" : '"' + document.cookie + '"'));
 
   // URLクエリ取得
   const urlQueries = getUrlQueries();
@@ -154,6 +185,10 @@ function start() {
   document.getElementById("navhide").onclick = onNavHide;
   document.getElementById("navshowdark").onclick = onNavHide;
 
+  // ログインチェック
+  uuid_token = Cookies.get("uuid_token");
+  if (uuid_token) login();
+
   // ページ毎
   const path = location.pathname;
   debug("path: " + path);
@@ -184,6 +219,26 @@ function navAnimation() {
   else wait(20).then(navAnimation);
 }
 
+function login() {
+  if (!uuid_token) throw new Error(`uuid_token is ${uuid_token}`);
+  request(`${GAS}?where=profile&uuid_token=${uuid_token}`)
+    .then(res => {
+      users = new Users(uuid_token);
+      myProfile = {
+        id: res.user_id,
+        name: res.profile.name,
+        email: res.profile.email,
+        icon: res.profile.icon,
+      }
+      users.users[myProfile.id] = myProfile;
+    })
+    .catch(e => {
+      uuid_token = undefined;
+      debug(e.message);
+      window.alert("ログインに失敗しました。");
+    });
+}
+
 let googleUser = null;
 // on google signin
 function onSignIn(user) {
@@ -198,7 +253,6 @@ function onSignIn(user) {
   );
   debug("Googleログイン成功！");
   debug('"googleUser": ' + JSON.stringify(googleUser, null, 2));
-  debug('"cookie": ' + JSON.stringify(document.cookie));
 }
 
 function forCSS() {
