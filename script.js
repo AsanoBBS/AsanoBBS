@@ -8,6 +8,12 @@ const SEC = sec => sec * 1000;
 const MIN = min => min * SEC(60);
 const HR = hr => hr * MIN(60);
 const DAY = day => day * HR(24);
+const NavStates = {
+  HIDDEN: 0,
+  SHOW:   1,
+  SHOWED: 2,
+  HIDE:   3,
+};
 
 /* classes */
 class Users {
@@ -88,14 +94,6 @@ const addLineInnerHTML = (element, line) =>
   (element.innerHTML = addLine(element.innerHTML, line, "<br />"));
 // promiseラップ
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-/* constant */
-const NavStates = {
-  HIDDEN: 0,
-  SHOW:   1,
-  SHOWED: 2,
-  HIDE:   3,
-};
 
 /* values */
 let mobile = false;
@@ -231,6 +229,15 @@ function login() {
         icon: res.profile.icon,
       }
       users.users[myProfile.id] = myProfile;
+      // html書き換え
+      if (mobile) document.getElementById("headericon").classList.remove("hide2");
+      htmlForEach(
+        document.getElementsByClassName("myicon"),
+        element => {
+          element.style.visibility = "visible";
+          element.src = myProfile.icon;
+        }
+      );
     })
     .catch(e => {
       uuid_token = undefined;
@@ -239,20 +246,13 @@ function login() {
     });
 }
 
-let googleUser = null;
 // on google signin
 function onSignIn(user) {
-  googleUser = user;
-  if (mobile) document.getElementById("headericon").classList.remove("hide2");
-  htmlForEach(
-    document.getElementsByClassName("myicon"),
-    element => {
-        element.style.visibility = "visible";
-        element.src = googleUser.wt.hK;
-    }
-  );
   debug("Googleログイン成功！");
   debug('"googleUser": ' + JSON.stringify(googleUser, null, 2));
+  // check @asano.ed.jp
+  // get uuid_token
+  // save cookie
 }
 
 function forCSS() {
