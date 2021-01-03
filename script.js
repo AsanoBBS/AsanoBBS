@@ -241,7 +241,7 @@ function login() {
     })
     .catch(e => {
       uuid_token = undefined;
-      debug(e.message);
+      debug("[failed to login] " + e.name + ": " + e.message);
       window.alert("ログインに失敗しました。");
     });
 }
@@ -266,7 +266,10 @@ function onSignIn(googleUser) {
         debug("[failed to login] " + e.name + ": " + e.message);
         window.alert("ログインに失敗しました。");
       });
-  } else window.alert("浅野のgoogleアカウントでログインしてください");
+  } else {
+    debug("you are not an Asano student");
+    window.alert("浅野のgoogleアカウントでログインしてください");
+  }
   // sign out
   gapi.auth2.getAuthInstance().signOut()
     .then(() => debug("g-signin2 signed out"));
