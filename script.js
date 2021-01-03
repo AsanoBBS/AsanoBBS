@@ -45,20 +45,22 @@ const newErrorWithName = (name, message) => {
   return error;
 }
 // jsonリクエスト
-const request = (url, method = "GET", reqBody = null) =>
-  fetch(url, {
+const request = (url, method = "GET", reqBody = null) => {
+  debug(`requested to "${url}, mothod:${method}"`);
+  return fetch(url, {
     "method": method,
     "headers": {
       "Content-Type": "application/json"
     },
     "body": (equalsIgnoreCase(method, "GET") ? undefined : JSON.stringify(reqBody)),
-  }).then(res => res.json())
+  })
+    .then(res => res.json())
     .then(res => {
-      debug(`requested to "${url}, mothod:${method}"`);
       debug(`response is ${JSON.stringify(res, null, 2)}`);
       if (res.error) throw newErrorWithName(res.error.name, res.error.message);
       return res;
     });
+}
 // object空判定
 const isEmptyObj = obj => {
   for (let i in obj) return false;
@@ -256,9 +258,11 @@ function onSignIn(googleUser) {
   if (googleUser.getBasicProfile().getEmail().endsWith("@asano.ed.jp")) {
     // get uuid_token by access_token
     const access_token = googleUser.getAuthResponse().access_token;
+    debug("access_token: " + access_token);
     request(`${GAS}?where=login&access_token=${access_token}`)
       .then(res => {
         uuid_token = res.uuid_token;
+        debug("uuid_token: " + uuid_token);
         // cookieに保存 
         Cookies.set("uuid_token", uuid_token, { expires: 31 });
         // GASへデータ取得
