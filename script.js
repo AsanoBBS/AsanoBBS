@@ -54,6 +54,8 @@ const request = (url, method = "GET", reqBody = null) =>
     "body": (equalsIgnoreCase(method, "GET") ? undefined : JSON.stringify(reqBody)),
   }).then(res => res.json())
     .then(res => {
+      debug(`requested to "${url}, mothod:${method}"`);
+      debug(`response is ${JSON.stringify(res, null, 2)}`);
       if (res.error) throw newErrorWithName(res.error.name, res.error.message);
       return res;
     });
