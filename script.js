@@ -54,9 +54,12 @@ const request = (url, method = "GET", reqBody = null) => {
     },
     "body": (equalsIgnoreCase(method, "GET") ? undefined : JSON.stringify(reqBody)),
   })
-    .then(res => res.json())
     .then(res => {
-      debug(`response is ${JSON.stringify(res, null, 2)}`);
+      debug("response is " + res);
+      return res.json();
+    })
+    .then(res => {
+      //debug(`response is ${JSON.stringify(res, null, 2)}`);
       if (res.error) throw newErrorWithName(res.error.name, res.error.message);
       return res;
     });
@@ -253,7 +256,7 @@ function login() {
 // on google signin
 function onSignIn(googleUser) {
   debug("Googleログイン成功！");
-  //debug('"googleUser": ' + JSON.stringify(googleUser, null, 2));
+  debug('"googleUser": ' + JSON.stringify(googleUser, null, 2));
   // 浅野生かどうかの事前確認
   if (googleUser.getBasicProfile().getEmail().endsWith("@asano.ed.jp")) {
     // get uuid_token by access_token
