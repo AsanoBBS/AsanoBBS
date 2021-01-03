@@ -257,13 +257,13 @@ function onSignIn(googleUser) {
     request(`${GAS}?where=login&access_token=${access_token}`)
       .then(res => {
         uuid_token = res.uuid_token;
-        // TODO: cookieに保存 
-        
+        // cookieに保存 
+        Cookies.set("uuid_token", uuid_token, { expires: 31 });
         // GASへデータ取得
         login();
       })
       .catch(e => {
-        debug(e.message);
+        debug("[failed to login] " + e.name + ": " + e.message);
         window.alert("ログインに失敗しました。");
       });
   } else window.alert("浅野のgoogleアカウントでログインしてください");
