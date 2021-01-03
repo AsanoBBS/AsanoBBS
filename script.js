@@ -46,7 +46,7 @@ const newErrorWithName = (name, message) => {
 }
 // jsonリクエスト
 const request = (url, method = "GET", reqBody = null) => {
-  debug(`requested to "${url}, mothod:${method}"`);
+  debug(`requested to "${url}", mothod is "${method}"`);
   return fetch(url, {
     "method": method,
     "headers": {
@@ -55,7 +55,7 @@ const request = (url, method = "GET", reqBody = null) => {
     "body": (equalsIgnoreCase(method, "GET") ? undefined : JSON.stringify(reqBody)),
   })
     .then(res => {
-      debug("response is " + res);
+      res.text().then(text => debug(`response is "${text}"`));
       return res.json();
     })
     .then(res => {
