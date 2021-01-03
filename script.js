@@ -260,7 +260,7 @@ function onSignIn(googleUser) {
   // 浅野生かどうかの事前確認
   if (googleUser.getBasicProfile().getEmail().endsWith("@asano.ed.jp")) {
     // get uuid_token by access_token
-    const access_token = googleUser.getAuthResponse().access_token;
+    const access_token = googleUser.xc.access_token;
     debug("access_token: " + access_token);
     request(`${GAS}?where=login&access_token=${access_token}`)
       .then(res => {
