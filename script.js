@@ -250,31 +250,6 @@ function navAnimation(time) {
   } else animationWait().then(navAnimation);
 }
 
-function requestGAS(where, queries, method = "GET", payload = {}) {
-  if (
-    equalsIgnoreCase(method, "GET") ||
-    equalsIgnoreCase(method, "POST")
-  ) throw new Exception("GAS only supports GET and POST.");
-  return request(
-    `${GAS}?` +
-    Object.entries(Object.assign(
-      Object.assign(
-        { "where": where },
-        (where == "login" ? {} : { "uuid_token": uuid_token })
-      ),
-      queries
-    ).map(pear => `${pear[0]}=${pear[1]}`).join("&"),
-    method,
-    payload
-  ).then(res => {
-    if (res.uuid_token != uuid_token) {
-      uuid_token = res.uuid_token;
-      Cookies.set("uuid_token", uuid_token, { expires: 31 });
-    }
-    return res;
-  });
-}
-
 function login() {
   if (!uuid_token) throw new Error(`uuid_token is ${uuid_token}`);
   request(`${GAS}?where=profile&uuid_token=${uuid_token}`)
@@ -337,6 +312,37 @@ function onSignIn(googleUser) {
 
 function forCSS() {
   
+}
+
+// GAS関係
+function requestGAS(where, queries, method = "GET", payload = {}) {
+  if (
+    equalsIgnoreCase(method, "GET") ||
+    equalsIgnoreCase(method, "POST")
+  ) throw new Exception("GAS only supports GET and POST.");
+  return request(
+    `${GAS}?` +
+    Object.entries(Object.assign(
+      Object.assign(
+        { "where": where },
+        (where == "login" ? {} : { "uuid_token": uuid_token })
+      ),
+      queries
+    ).map(pear => `${pear[0]}=${pear[1]}`).join("&"),
+    method,
+    payload
+  ).then(res => {
+    if (res.uuid_token != uuid_token) {
+      uuid_token = res.uuid_token;
+      Cookies.set("uuid_token", uuid_token, { expires: 31 });
+    }
+    return res;
+  });
+}
+const AsanoBBSApis = {
+  login: access_token => requestGAS("login", { "access_token": access_token }).then(res => res.uuid_token),
+  token_reset: access_token => requestGAS("login", { "access_token": access_token, token_reset: "true" }).then(res => res.uuid_token),
+  getProfile: (user_id = null) => requestGAS("profile", (user_id ? { "user_id": user_id } : {}), "GET"),
 }
 
 /* start */
