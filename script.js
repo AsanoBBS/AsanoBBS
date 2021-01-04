@@ -45,7 +45,7 @@ const newErrorWithName = (name, message) => {
   return error;
 }
 // jsonリクエスト
-const request = (url, method = "GET", reqBody = null) => {
+const request = (url, method = "GET", reqBody = {}) => {
   debug(`requested to "${url}", mothod is "${method}"`);
   const options = {
     "method": method,
@@ -248,6 +248,29 @@ function navAnimation(time) {
     navState = NavStates.SHOWED;
     before = null;
   } else animationWait().then(navAnimation);
+}
+
+function requestGAS(where, queries, method = "GET", payload = {}) {
+  if (
+    equalsIgnoreCase(method, "GET") ||
+    equalsIgnoreCase(method, "POST")
+  ) throw new Exception("GAS only supports GET and POST.");
+  if (where == "login") {
+    
+  } else {
+    return request(
+      `${GAS}?` +
+      Object.entries(Object.assign({
+        "where": where, "uuid_token": uuid_token,
+      }, queries))
+        .map(pear => `${pear[0]}=${pear[1]}`).join("&"),
+      method,
+      payload
+    ).then(res => {
+      
+      return res;
+    });
+  }
 }
 
 function login() {
