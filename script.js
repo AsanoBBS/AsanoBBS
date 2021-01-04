@@ -105,7 +105,7 @@ const addLineInnerHTML = (element, line) =>
 // promiseラップ
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 const animationWait //= () => new Promise(reaolve => requestAnimationFrame(resolve));
-  = wait(1).then(() => performance.now());
+  = () => wait(1).then(() => performance.now());
 
 /* values */
 let mobile = false;
@@ -178,7 +178,7 @@ function start() {
     if (mobile) {
       if (navState === NavStates.HIDDEN) {
         document.getElementById("navshowdark").classList.remove("hide");
-        animationWait.then(navAnimation);
+        animationWait().then(navAnimation);
       }
       navState = NavStates.SHOW;
     }
@@ -187,7 +187,7 @@ function start() {
   const onNavHide = () => {
     if (mobile) {
       if (navState === NavStates.SHOWED) {
-        animationWait.then(navAnimation);
+        animationWait().then(navAnimation);
       }
       navState = NavStates.HIDE;
     }
@@ -239,7 +239,7 @@ function navAnimation(time) {
     document.getElementsByClassName("mobilenav")[0].style.left = "20%";
     navState = NavStates.SHOWED;
     before = null;
-  } else animationWait.then(navAnimation);
+  } else animationWait().then(navAnimation);
 }
 
 function login() {
