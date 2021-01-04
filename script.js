@@ -255,22 +255,24 @@ function requestGAS(where, queries, method = "GET", payload = {}) {
     equalsIgnoreCase(method, "GET") ||
     equalsIgnoreCase(method, "POST")
   ) throw new Exception("GAS only supports GET and POST.");
-  if (where == "login") {
-    
-  } else {
-    return request(
-      `${GAS}?` +
-      Object.entries(Object.assign({
-        "where": where, "uuid_token": uuid_token,
-      }, queries))
-        .map(pear => `${pear[0]}=${pear[1]}`).join("&"),
-      method,
-      payload
-    ).then(res => {
-      
-      return res;
-    });
-  }
+  return request(
+    `${GAS}?` +
+    Object.entries(Object.assign(
+      Object.assign(
+        { "where": where },
+        (where == "login" ? {} : { "uuid_token": uuid_token })
+      ),
+      queries
+    ).map(pear => `${pear[0]}=${pear[1]}`).join("&"),
+    method,
+    payload
+  ).then(res => {
+    if (res.uuid_token != uuid_token) {
+      uuid_token = res.uuid_token;
+      Cookies.set("uuid_token", uuid_token, { expires: 31 });
+    }
+    return res;
+  });
 }
 
 function login() {
