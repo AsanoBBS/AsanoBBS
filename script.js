@@ -14,6 +14,9 @@ const NavStates = {
   SHOWED: 2,
   HIDE:   3,
 };
+// かけて200くらいに
+const NAV_WAIT = 10;
+const NAV_FRAME_NUM = 20;
 
 /* classes */
 class Users {
@@ -176,7 +179,7 @@ function start() {
     if (mobile) {
       if (navState === NavStates.HIDDEN) {
         document.getElementById("navshowdark").classList.remove("hide");
-        wait(20).then(navAnimation);
+        wait(NAV_WAIT).then(navAnimation);
       }
       navState = NavStates.SHOW;
     }
@@ -185,7 +188,7 @@ function start() {
   const onNavHide = () => {
     if (mobile) {
       if (navState === NavStates.SHOWED) {
-        wait(20).then(navAnimation);
+        wait(NAV_WAIT).then(navAnimation);
       }
       navState = NavStates.HIDE;
     }
@@ -215,7 +218,7 @@ function navAnimation() {
   if (navState === NavStates.SHOW) navMove++;
   if (navState === NavStates.HIDE) navMove--;
   // reflect
-  const per = (Math.cos(Math.PI * navMove / 10) + 1) / 2;
+  const per = (Math.cos(Math.PI * navMove / NAV_FRAME_NUN) + 1) / 2;
   document.getElementsByClassName("mobilenav")[0].style.left =
     (25 + 75 * per) + "%";
   // next
@@ -223,8 +226,8 @@ function navAnimation() {
     navState = NavStates.HIDDEN;
     document.getElementById("navshowdark").classList.add("hide");
   }
-  else if (navMove == 10) navState = NavStates.SHOWED;
-  else wait(20).then(navAnimation);
+  else if (navMove == NAV_FRAME_NUN) navState = NavStates.SHOWED;
+  else wait(NAV_WAIT).then(navAnimation);
 }
 
 function login() {
