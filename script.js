@@ -179,7 +179,7 @@ function start() {
     if (mobile) {
       if (navState === NavStates.HIDDEN) {
         document.getElementById("navshowdark").classList.remove("hide");
-        wait(NAV_WAIT).then(navAnimation);
+        wait(20).then(navAnimation);
       }
       navState = NavStates.SHOW;
     }
@@ -188,7 +188,7 @@ function start() {
   const onNavHide = () => {
     if (mobile) {
       if (navState === NavStates.SHOWED) {
-        wait(NAV_WAIT).then(navAnimation);
+        wait(20).then(navAnimation);
       }
       navState = NavStates.HIDE;
     }
@@ -218,7 +218,7 @@ function navAnimation() {
   if (navState === NavStates.SHOW) navMove++;
   if (navState === NavStates.HIDE) navMove--;
   // reflect
-  const per = (Math.cos(Math.PI * navMove / NAV_FRAME_NUN) + 1) / 2;
+  const per = (Math.cos(Math.PI * navMove / 10) + 1) / 2;
   document.getElementsByClassName("mobilenav")[0].style.left =
     (25 + 75 * per) + "%";
   // next
@@ -226,8 +226,8 @@ function navAnimation() {
     navState = NavStates.HIDDEN;
     document.getElementById("navshowdark").classList.add("hide");
   }
-  else if (navMove == NAV_FRAME_NUN) navState = NavStates.SHOWED;
-  else wait(NAV_WAIT).then(navAnimation);
+  else if (navMove == 10) navState = NavStates.SHOWED;
+  else wait(20).then(navAnimation);
 }
 
 function login() {
