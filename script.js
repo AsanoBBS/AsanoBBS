@@ -56,7 +56,7 @@ const request = (url, method = "GET", reqBody = null) => {
     },
   };
   if (!equalsIgnoreCase(method, "GET")) options["body"] = JSON.stringify(reqBody);
-  fetch(url, options)
+  return fetch(url, options)
     .then(res => {
       res.text().then(text => debug(`response is "${text}"`));
       return res.json();
