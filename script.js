@@ -339,9 +339,17 @@ function requestGAS(where, queries, method = "GET", payload = {}) {
   });
 }
 const AsanoBBSApis = {
-  login: access_token => requestGAS("login", { "access_token": access_token }).then(res => res.uuid_token),
-  token_reset: access_token => requestGAS("login", { "access_token": access_token, token_reset: "true" }).then(res => res.uuid_token),
-  getProfile: (user_id = null) => requestGAS("profile", (user_id ? { "user_id": user_id } : {}), "GET"),
+  login: function(access_token) {
+    return requestGAS("login", { "access_token": access_token })
+      .then(res => res.uuid_token);
+  },
+  token_reset: function(access_token) {
+    return requestGAS("login", { "access_token": access_token, token_reset: "true" })
+      .then(res => res.uuid_token);
+  },
+  getProfile: function(user_id = null) {
+    return requestGAS("profile", (user_id ? { "user_id": user_id } : {}), "GET");
+  },
 }
 
 /* start */
