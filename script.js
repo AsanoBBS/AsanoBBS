@@ -111,7 +111,7 @@ const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 /* values */
 let mobile = false;
 let navState = NavStates.HIDDEN;
-let navMove = 0;  // 0(hidden) ~ 10(showed)
+let navMove = 0;  // 0(hidden) ~ NAV_FRAME_NUM(showed)
 let uuid_token;
 let myProfile;
 let users;
@@ -218,7 +218,7 @@ function navAnimation() {
   if (navState === NavStates.SHOW) navMove++;
   if (navState === NavStates.HIDE) navMove--;
   // reflect
-  const per = (Math.cos(Math.PI * navMove / 10) + 1) / 2;
+  const per = (Math.cos(Math.PI * navMove / NAV_FRAME_NUM) + 1) / 2;
   document.getElementsByClassName("mobilenav")[0].style.left =
     (25 + 75 * per) + "%";
   // next
@@ -226,7 +226,7 @@ function navAnimation() {
     navState = NavStates.HIDDEN;
     document.getElementById("navshowdark").classList.add("hide");
   }
-  else if (navMove == 10) navState = NavStates.SHOWED;
+  else if (navMove == NAV_FRAME_NUM) navState = NavStates.SHOWED;
   else wait(NAV_WAIT).then(navAnimation);
 }
 
