@@ -47,15 +47,16 @@ const newErrorWithName = (name, message) => {
 // jsonリクエスト
 const request = (url, method = "GET", reqBody = null) => {
   debug(`requested to "${url}", mothod is "${method}"`);
-  return fetch(url, {
+  const options = {
     "method": method,
     "headers": {
       //"Content-Type": "application/json"
       // CROS制限回避
       "Content-Type": "text/plain"
     },
-    "body": (equalsIgnoreCase(method, "GET") ? undefined : JSON.stringify(reqBody)),
-  })
+  };
+  if (!equalsIgnoreCase(method, "GET")) options["body"] = JSON.stringify(reqBody);
+  fetch(url, options)
     .then(res => {
       res.text().then(text => debug(`response is "${text}"`));
       return res.json();
