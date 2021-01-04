@@ -22,7 +22,7 @@ class Users {
     this.users = {};
   }
   loadUser(id) {
-    return request(`${GAS}?where=profile&uuid_token=${this.uuid_token}&user_id=${id}`)
+    return AsanoBBSApis.getProfile(id)
       .then(res => {
         this.users[res.user_id] = {
           name: res.profile.name,
@@ -252,7 +252,8 @@ function navAnimation(time) {
 
 function login() {
   if (!uuid_token) throw new Error(`uuid_token is ${uuid_token}`);
-  request(`${GAS}?where=profile&uuid_token=${uuid_token}`)
+  //request(`${GAS}?where=profile&uuid_token=${uuid_token}`)
+  AsanoBBSApis.getProfile()
     .then(res => {
       users = new Users(uuid_token);
       myProfile = {
@@ -288,13 +289,11 @@ function onSignIn(googleUser) {
     // get uuid_token by access_token
     const access_token = googleUser.xc.access_token;
     debug("access_token: " + access_token);
-    request(`${GAS}?where=login&access_token=${access_token}`)
-      .then(res => {
-        uuid_token = res.uuid_token;
-        debug("uuid_token: " + uuid_token);
-        // cookieに保存 
-        Cookies.set("uuid_token", uuid_token, { expires: 31 });
-        // GASへデータ取得
+    //request(`${GAS}?where=login&access_token=${access_token}`)
+    AsanoBBSApis.login(access_token)
+      .then(token => {
+        debug("uuid_token: " + token);
+        // ユーザープロフィールの取得
         login();
       })
       .catch(e => {
