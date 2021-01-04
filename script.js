@@ -179,7 +179,7 @@ function start() {
     if (mobile) {
       if (navState === NavStates.HIDDEN) {
         document.getElementById("navshowdark").classList.remove("hide");
-        wait(20).then(navAnimation);
+        wait(NAV_WAIT).then(navAnimation);
       }
       navState = NavStates.SHOW;
     }
@@ -188,7 +188,7 @@ function start() {
   const onNavHide = () => {
     if (mobile) {
       if (navState === NavStates.SHOWED) {
-        wait(20).then(navAnimation);
+        wait(NAV_WAIT).then(navAnimation);
       }
       navState = NavStates.HIDE;
     }
@@ -227,7 +227,7 @@ function navAnimation() {
     document.getElementById("navshowdark").classList.add("hide");
   }
   else if (navMove == 10) navState = NavStates.SHOWED;
-  else wait(20).then(navAnimation);
+  else wait(NAV_WAIT).then(navAnimation);
 }
 
 function login() {
