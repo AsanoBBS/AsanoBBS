@@ -102,10 +102,16 @@ const addLine = (str, line, newLineCode = "\n") =>
 const addLineObj = (obj, key, line) => (obj[key] = addLine(obj[key], line));
 const addLineInnerHTML = (element, line) =>
   (element.innerHTML = addLine(element.innerHTML, line, "<br />"));
+// requestAnimationFrame
+const requestAnimationFrame =
+  window.requestAnimationFrame || 
+  window.mozRequestAnimationFrame ||
+  window.webkitRequestAnimationFrame || 
+  window.msRequestAnimationFrame ||
+  (callback => setTimeout(() => callback(performance.now()), 15));
 // promiseラップ
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-const animationWait = () => new Promise(reaolve => requestAnimationFrame(resolve));
-  //= () => wait(10).then(() => performance.now());
+const animationWait = () => new Promise(resolve => requestAnimationFrame(resolve));
 
 /* values */
 let mobile = false;
