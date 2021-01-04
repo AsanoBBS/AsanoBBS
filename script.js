@@ -176,6 +176,7 @@ function start() {
   // メニュー
   const onNavShow = () => {
     if (mobile) {
+      debug("show!");
       if (navState === NavStates.HIDDEN) {
         document.getElementById("navshowdark").classList.remove("hide");
         animationWait().then(navAnimation);
@@ -186,6 +187,7 @@ function start() {
   document.getElementById("headericon").onclick = onNavShow;
   const onNavHide = () => {
     if (mobile) {
+      debug("hide!");
       if (navState === NavStates.SHOWED) {
         animationWait().then(navAnimation);
       }
