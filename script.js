@@ -105,7 +105,7 @@ const addLineInnerHTML = (element, line) =>
 // promiseラップ
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 const animationWait //= () => new Promise(reaolve => requestAnimationFrame(resolve));
-  = () => wait(50).then(() => performance.now());
+  = () => wait(10).then(() => performance.now());
 
 /* values */
 let mobile = false;
@@ -221,8 +221,8 @@ function navAnimation(time) {
   const elapsed = time - before;
   debug("elapsed: " + elapsed);
   // move
-  if (navState === NavStates.SHOW) navMove += elapsed / 500;
-  if (navState === NavStates.HIDE) navMove -= elapsed / 500;
+  if (navState === NavStates.SHOW) navMove += elapsed / SEC(0.25);
+  if (navState === NavStates.HIDE) navMove -= elapsed / SEC(0.25);
   // reflect
   const per = (Math.cos(Math.PI * navMove) + 1) / 2;
   document.getElementsByClassName("mobilenav")[0].style.left =
