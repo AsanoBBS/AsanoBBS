@@ -185,7 +185,7 @@ function start() {
       debug("show!");
       if (navState === NavStates.HIDDEN) {
         document.getElementById("navshowdark").classList.remove("hide");
-        animationWait().then(navAnimation);
+        navAnimation(performance.now());
       }
       navState = NavStates.SHOW;
     }
@@ -195,7 +195,7 @@ function start() {
     if (mobile) {
       debug("hide!");
       if (navState === NavStates.SHOWED) {
-        animationWait().then(navAnimation);
+        navAnimation(performance.now());
       }
       navState = NavStates.HIDE;
     }
