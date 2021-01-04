@@ -15,8 +15,8 @@ const NavStates = {
   HIDE:   3,
 };
 // かけて200くらいに
-const NAV_WAIT = 20;
-const NAV_FRAME_NUM = 10;
+const NAV_WAIT = 10;
+const NAV_FRAME_NUM = 20;
 
 /* classes */
 class Users {
@@ -220,7 +220,7 @@ function navAnimation() {
   // reflect
   const per = (Math.cos(Math.PI * navMove / NAV_FRAME_NUM) + 1) / 2;
   document.getElementsByClassName("mobilenav")[0].style.left =
-    (25 + 75 * per) + "%";
+    (20 + 80 * per) + "%";
   // next
   if (navMove == 0) {
     navState = NavStates.HIDDEN;
