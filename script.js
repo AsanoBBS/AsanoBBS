@@ -57,12 +57,12 @@ const request = (url, method = "GET", reqBody = null) => {
   };
   if (!equalsIgnoreCase(method, "GET")) options["body"] = JSON.stringify(reqBody);
   return fetch(url, options)
+    .then(res => res.text())
     .then(res => {
-      res.text().then(text => debug(`response is "${text}"`));
-      return res.json();
+      debug(`response is "${res}"`);
+      return JSON.parse(res);
     })
     .then(res => {
-      //debug(`response is ${JSON.stringify(res, null, 2)}`);
       if (res.error) throw newErrorWithName(res.error.name, res.error.message);
       return res;
     });
