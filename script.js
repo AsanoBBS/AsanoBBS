@@ -104,7 +104,8 @@ const addLineInnerHTML = (element, line) =>
   (element.innerHTML = addLine(element.innerHTML, line, "<br />"));
 // promiseラップ
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-const animationWait = () => new Promise(reaolve => requestAnimationFrame(resolve));
+const animationWait //= () => new Promise(reaolve => requestAnimationFrame(resolve));
+  = wait(0);
 
 /* values */
 let mobile = false;
