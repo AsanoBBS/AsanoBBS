@@ -50,7 +50,9 @@ const request = (url, method = "GET", reqBody = null) => {
   return fetch(url, {
     "method": method,
     "headers": {
-      "Content-Type": "application/json"
+      //"Content-Type": "application/json"
+      // CROS制限回避
+      "Content-Type": "text/plain"
     },
     "body": (equalsIgnoreCase(method, "GET") ? undefined : JSON.stringify(reqBody)),
   })
