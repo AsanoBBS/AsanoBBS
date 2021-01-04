@@ -14,7 +14,7 @@ const NavStates = {
   SHOWED: 2,
   HIDE:   3,
 };
-const NAV_WAIT = 10;
+const NAV_WAIT = 5;
 const NAV_FRAME_NUM = 15;
 
 /* classes */
