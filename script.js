@@ -105,7 +105,7 @@ const addLineInnerHTML = (element, line) =>
 // promiseラップ
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 const animationWait //= () => new Promise(reaolve => requestAnimationFrame(resolve));
-  = () => wait(1).then(() => performance.now());
+  = () => wait(50).then(() => performance.now());
 
 /* values */
 let mobile = false;
