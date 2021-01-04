@@ -228,11 +228,15 @@ function navAnimation(time) {
   // before
   before = time;
   // next
-  if (navMove <= 0) {
+  if (navMove < 0) {
+    navMove = 0;
+    document.getElementsByClassName("mobilenav")[0].style.left = "100%";
     navState = NavStates.HIDDEN;
     document.getElementById("navshowdark").classList.add("hide");
     before = null;
-  } else if (navMove >= 1) {
+  } else if (navMove > 1) {
+    navMove = 1;
+    document.getElementsByClassName("mobilenav")[0].style.left = "20%";
     navState = NavStates.SHOWED;
     before = null;
   } else animationWait.then(navAnimation);
