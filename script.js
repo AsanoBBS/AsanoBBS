@@ -109,7 +109,7 @@ const animationWait = () => new Promise(reaolve => requestAnimationFrame(resolve
 /* values */
 let mobile = false;
 let navState = NavStates.HIDDEN;
-let navMove = 0;  // 0(hidden) ~ NAV_FRAME_NUM(showed)
+let navMove = 0;  // 0(hidden) ~ 1(showed)
 let uuid_token;
 let myProfile;
 let users;
