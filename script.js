@@ -14,9 +14,8 @@ const NavStates = {
   SHOWED: 2,
   HIDE:   3,
 };
-// かけて100~200くらいに
-const NAV_WAIT = 5;
-const NAV_FRAME_NUM = 20;
+const NAV_WAIT = 10;
+const NAV_FRAME_NUM = 10;
 
 /* classes */
 class Users {
