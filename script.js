@@ -213,8 +213,10 @@ function start() {
 // nav animation
 let before = null;
 function navAnimation(time) {
+  debug("time: " + time);
   if (!before) before = time;
   const elapsed = time - before;
+  debug("elapsed: " + elapsed);
   // move
   if (navState === NavStates.SHOW) navMove += elapsed / 500;
   if (navState === NavStates.HIDE) navMove -= elapsed / 500;
