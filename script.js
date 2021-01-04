@@ -14,8 +14,6 @@ const NavStates = {
   SHOWED: 2,
   HIDE:   3,
 };
-const NAV_WAIT = 5;
-const NAV_FRAME_NUM = 15;
 
 /* classes */
 class Users {
@@ -106,6 +104,7 @@ const addLineInnerHTML = (element, line) =>
   (element.innerHTML = addLine(element.innerHTML, line, "<br />"));
 // promiseラップ
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+const animationWait = () => new Promise(reaolve => requestAnimationFrame(resolve));
 
 /* values */
 let mobile = false;
@@ -178,7 +177,7 @@ function start() {
     if (mobile) {
       if (navState === NavStates.HIDDEN) {
         document.getElementById("navshowdark").classList.remove("hide");
-        wait(NAV_WAIT).then(navAnimation);
+        animationWait.then(navAnimation);
       }
       navState = NavStates.SHOW;
     }
@@ -187,7 +186,7 @@ function start() {
   const onNavHide = () => {
     if (mobile) {
       if (navState === NavStates.SHOWED) {
-        wait(NAV_WAIT).then(navAnimation);
+        animationWait.then(navAnimation);
       }
       navState = NavStates.HIDE;
     }
@@ -212,21 +211,28 @@ function start() {
 }
 
 // nav animation
-function navAnimation() {
+let before = null;
+function navAnimation(time) {
+  if (!before) before = time;
+  const elapsed = time - before;
   // move
-  if (navState === NavStates.SHOW) navMove++;
-  if (navState === NavStates.HIDE) navMove--;
+  if (navState === NavStates.SHOW) navMove += elapsed / 500;
+  if (navState === NavStates.HIDE) navMove -= elapsed / 500;
   // reflect
-  const per = (Math.cos(Math.PI * navMove / NAV_FRAME_NUM) + 1) / 2;
+  const per = (Math.cos(Math.PI * navMove) + 1) / 2;
   document.getElementsByClassName("mobilenav")[0].style.left =
     (20 + 80 * per) + "%";
+  // before
+  before = time;
   // next
-  if (navMove == 0) {
+  if (navMove <= 0) {
     navState = NavStates.HIDDEN;
     document.getElementById("navshowdark").classList.add("hide");
-  }
-  else if (navMove == NAV_FRAME_NUM) navState = NavStates.SHOWED;
-  else wait(NAV_WAIT).then(navAnimation);
+    before = null;
+  } else if (navMove >= 1) {
+    navState = NavStates.SHOWED;
+    before = null;
+  } else animationWait.then(navAnimation);
 }
 
 function login() {
