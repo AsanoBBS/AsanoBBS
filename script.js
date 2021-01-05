@@ -316,10 +316,10 @@ function forCSS() {
 // GAS関係
 function requestGAS(where, queries, method = "GET", payload = {}) {
   debug(`requestGAS(${where}, ${queries}, ${method}, ${payload});`);
-  if (
+  if (!(
     equalsIgnoreCase(method, "GET") ||
     equalsIgnoreCase(method, "POST")
-  ) throw new Exception("GAS only supports GET and POST.");
+  )) throw new Exception("GAS only supports GET and POST.");
   return request(
     `${GAS}?` +
     Object.entries(Object.assign(
