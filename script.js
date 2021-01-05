@@ -315,6 +315,7 @@ function forCSS() {
 
 // GAS関係
 function requestGAS(where, queries, method = "GET", payload = {}) {
+  debug(`requestGAS(${where}, ${queries}, ${method}, ${payload});`);
   if (
     equalsIgnoreCase(method, "GET") ||
     equalsIgnoreCase(method, "POST")
