@@ -127,9 +127,10 @@ const debugText = document.getElementById("debug");
 function debug(msg) {
   if (debugMode) {
     debugText.style = "padding: 3px";
-    addLineInnerHTML(debugText, msg);
+    if (msg === undefined) addLineInnerHTML(debugText, "undefined");
+    else addLineInnerHTML(debugText, JSON.stringify(msg));
   }
-  console.log(msg);
+  console.dir(msg);
 }
 
 function start() {
@@ -222,10 +223,8 @@ function start() {
 // nav animation
 let before = null;
 function navAnimation(time) {
-  debug("time: " + time);
   if (!before) before = time;
   const elapsed = time - before;
-  debug("elapsed: " + elapsed);
   // move
   if (navState === NavStates.SHOW) navMove += elapsed / SEC(0.25);
   if (navState === NavStates.HIDE) navMove -= elapsed / SEC(0.25);
@@ -252,7 +251,6 @@ function navAnimation(time) {
 
 function login() {
   if (!uuid_token) throw new Error(`uuid_token is ${uuid_token}`);
-  //request(`${GAS}?where=profile&uuid_token=${uuid_token}`)
   AsanoBBSApis.getProfile()
     .then(res => {
       users = new Users(uuid_token);
@@ -275,6 +273,7 @@ function login() {
     })
     .catch(e => {
       uuid_token = undefined;
+      Cookies.remove("uuid_token");
       debug("[failed to login] " + e.name + ": " + e.message);
       window.alert("ログインに失敗しました。");
     });
@@ -289,7 +288,6 @@ function onSignIn(googleUser) {
     // get uuid_token by access_token
     const access_token = googleUser.xc.access_token;
     debug("access_token: " + access_token);
-    //request(`${GAS}?where=login&access_token=${access_token}`)
     AsanoBBSApis.login(access_token)
       .then(token => {
         debug("uuid_token: " + token);
@@ -315,7 +313,7 @@ function forCSS() {
 
 // GAS関係
 function requestGAS(where, queries, method = "GET", payload = {}) {
-  debug(`requestGAS(${where}, ${queries}, ${method}, ${payload});`);
+  debug(`requestGAS(where: ${where}, queries: ${JSON.stringify(queries)}, method: ${method}, payload: ${JSON.stringify(payload)});`);
   if (!(
     equalsIgnoreCase(method, "GET") ||
     equalsIgnoreCase(method, "POST")
