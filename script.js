@@ -327,7 +327,7 @@ function requestGAS(where, queries, method = "GET", payload = {}) {
         (where == "login" ? {} : { "uuid_token": uuid_token })
       ),
       queries
-    ).map(pear => `${pear[0]}=${pear[1]}`).join("&"),
+    )).map(pear => `${pear[0]}=${pear[1]}`).join("&"),
     method,
     payload
   ).then(res => {
