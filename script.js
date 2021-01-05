@@ -54,6 +54,7 @@ const request = (url, method = "GET", reqBody = {}) => {
       // CROS制限回避
       "Content-Type": "text/plain"
     },
+    "cache": "no-store",
   };
   if (!equalsIgnoreCase(method, "GET")) options["body"] = JSON.stringify(reqBody);
   return fetch(url, options)
