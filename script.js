@@ -112,11 +112,11 @@ const addLineInnerHTML = (element, line) =>
   (element.innerHTML = addLine(element.innerHTML, line, "<br />"));
 // DateFormat
 Date.dateFormatPresets = {};
-Date.prototype.format = function(format) {
+/*Date.prototype.format = function(format) {
   return Date.dateFormatPresets
     .computeIfAbsent(format, f => new DateFormat(f))
     .format(this);
-}
+}*/
 // requestAnimationFrame
 const requestAnimationFrame =
   window.requestAnimationFrame || 
