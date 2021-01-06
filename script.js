@@ -350,6 +350,7 @@ function requestGAS(where, queries, method = "GET", payload = {}) {
         Cookies.set("uuid_token", uuid_token, { expires: 31 });
       } catch(e) {
         debug(`[requestGAS ERROR] ${e.name}: ${e.message}`);
+        debug(`uuid_token= ${uuid_token}: ${typeof(uuid_token)}`);
       }
     }
     return res;
