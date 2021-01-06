@@ -61,8 +61,7 @@ const request = (url, method = "GET", reqBody = {}) => {
   return fetch(url, options)
     .then(res => res.text())
     .then(res => {
-      const time = new Date(Date.now() - start);
-      debug(`response is "${res}" (time: ${time.format("ss.SSS")})`);
+      debug(`response is "${res}" (time: ${(Date.now() - start) / 1000})`);
       return JSON.parse(res);
     })
     .then(res => {
@@ -114,11 +113,9 @@ const addLineInnerHTML = (element, line) =>
 // DateFormat
 Date.dateFormatPresets = {};
 Date.prototype.format = function(format) {
-  Date.dateFormatPresets
-    .computeIfAbsent(format, f => /*new DateFormat(f)*/format)
-    //.format(this);
-  debug(JSON.stringify(Date.dateFormatPresets));
-  return "時間！";
+  return Date.dateFormatPresets
+    .computeIfAbsent(format, f => new DateFormat(f))
+    .format(this);
 }
 // requestAnimationFrame
 const requestAnimationFrame =
@@ -151,8 +148,6 @@ function debug(msg) {
 }
 
 function start() {
-
-  wait(1000).then(() => debug(new DateFormat("SSS").format(new Date()))).catch(e => debug(e.message));
 
   // URLクエリ取得
   const urlQueries = getUrlQueries();
