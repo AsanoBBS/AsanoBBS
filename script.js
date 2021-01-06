@@ -46,6 +46,7 @@ const newErrorWithName = (name, message) => {
 }
 // jsonリクエスト
 const request = (url, method = "GET", reqBody = {}) => {
+  const start = Date.now();
   debug(`requested to "${url}", mothod is "${method}"`);
   const options = {
     "method": method,
@@ -60,7 +61,8 @@ const request = (url, method = "GET", reqBody = {}) => {
   return fetch(url, options)
     .then(res => res.text())
     .then(res => {
-      debug(`response is "${res}"`);
+      const time = new Date(Date.now() - start);
+      debug(`response is "${res}" (time: ${time.format("ss.SSS")})`);
       return JSON.parse(res);
     })
     .then(res => {
@@ -72,6 +74,12 @@ const request = (url, method = "GET", reqBody = {}) => {
 const isEmptyObj = obj => {
   for (let i in obj) return false;
   return true;
+}
+// JavaのcomputeIfAbsent
+Object.prototype.computeIfAbsent = function(key, mappingCallback) {
+  if (this[key] === undefined || this[key] === null)
+    this[key] = mappingCallback(key);
+  return this[key];
 }
 // htmlElementsのforEach
 const htmlForEach = (html, func) => Array.prototype.forEach.call(html, func);
@@ -103,6 +111,13 @@ const addLine = (str, line, newLineCode = "\n") =>
 const addLineObj = (obj, key, line) => (obj[key] = addLine(obj[key], line));
 const addLineInnerHTML = (element, line) =>
   (element.innerHTML = addLine(element.innerHTML, line, "<br />"));
+// DateFormat
+Date.dateFormatPresets = {};
+Date.prototype.format = function(format) {
+  return Date.dateFormatPresets
+    .computeIfAbsent(format, f => new DateFormat(f))
+    .format(this);
+}
 // requestAnimationFrame
 const requestAnimationFrame =
   window.requestAnimationFrame || 
