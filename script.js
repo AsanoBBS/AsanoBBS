@@ -117,7 +117,7 @@ Date.prototype.format = function(format) {
   Date.dateFormatPresets
     .computeIfAbsent(format, f => /*new DateFormat(f)*/format)
     //.format(this);
-  console.log(JSON.stringify(Date.dateFormatPresets));
+  debug(JSON.stringify(Date.dateFormatPresets));
   return "時間！";
 }
 // requestAnimationFrame
