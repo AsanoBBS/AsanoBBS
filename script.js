@@ -346,11 +346,10 @@ function requestGAS(where, queries, method = "GET", payload = {}) {
   ).then(res => {
     uuid_token = res.uuid_token;
     if (Cookies.get("uuid_token") != uuid_token) {
-      try {
+      try {  // 原因不明のエラー
         Cookies.set("uuid_token", uuid_token, { expires: 31 });
       } catch(e) {
         debug(`[requestGAS ERROR] ${e.name}: ${e.message}`);
-        debug('"error": ' + JSON.stringify(e, null, 2));
       }
     }
     return res;
