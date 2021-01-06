@@ -58,6 +58,7 @@ header {
 header span {
   position: absolute;
   margin: 4px;
+  padding: 0px 8px;
   height: var(--header-height);
   white-space: nowrap;
   overflow: hidden;
@@ -70,7 +71,6 @@ header span {
 }
 #headericon {
   right: 0;
-  padding: 0px 20px;
 }
 
 /* main */
