@@ -114,9 +114,11 @@ const addLineInnerHTML = (element, line) =>
 // DateFormat
 Date.dateFormatPresets = {};
 Date.prototype.format = function(format) {
-  return Date.dateFormatPresets
-    .computeIfAbsent(format, f => new DateFormat(f))
-    .format(this);
+  Date.dateFormatPresets
+    .computeIfAbsent(format, f => /*new DateFormat(f)*/format)
+    //.format(this);
+  console.log(JSON.stringify(Date.dateFormatPresets));
+  return "時間！";
 }
 // requestAnimationFrame
 const requestAnimationFrame =
