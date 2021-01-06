@@ -151,7 +151,7 @@ function debug(msg) {
 }
 
 function start() {
-debug(DateFormat);
+debug(new DateFormat("SSS").format(new Date()));
   // URLクエリ取得
   const urlQueries = getUrlQueries();
   if (urlQueries.debug) debugMode = true;
