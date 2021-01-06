@@ -128,10 +128,9 @@ const debugText = document.getElementById("debug");
 function debug(msg) {
   if (debugMode) {
     debugText.style = "padding: 3px";
-    if (msg === undefined) addLineInnerHTML(debugText, "undefined");
-    else addLineInnerHTML(debugText, JSON.stringify(msg));
+    addLineInnerHTML(debugText, msg);
   }
-  console.dir(msg);
+  console.log(msg);
 }
 
 function start() {
