@@ -346,7 +346,11 @@ function requestGAS(where, queries, method = "GET", payload = {}) {
   ).then(res => {
     if (res.uuid_token != uuid_token) {
       uuid_token = res.uuid_token;
-      Cookies.set("uuid_token", uuid_token, { expires: 31 });
+      try {
+        Cookies.set("uuid_token", uuid_token, { expires: 31 });
+      } catch(e) {
+        debug(`[requestGAS ERROR] ${e.name}: ${e.message}`);
+      }
     }
     return res;
   });
