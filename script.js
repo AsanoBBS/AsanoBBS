@@ -61,7 +61,7 @@ const request = (url, method = "GET", reqBody = {}) => {
   return fetch(url, options)
     .then(res => res.text())
     .then(res => {
-      debug(`response is "${res}" (time: ${(Date.now() - start) / 1000})`);
+      debug(`(time: ${(Date.now() - start) / 1000}) response is "${res}"`);
       return JSON.parse(res);
     })
     .then(res => {
