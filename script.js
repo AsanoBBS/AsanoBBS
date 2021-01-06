@@ -70,8 +70,8 @@ const request = (url, method = "GET", reqBody = {}) => {
     });
 }
 // object空判定
-const isEmptyObj = obj => {
-  for (let i in obj) return false;
+Object.prototype.isEmpty = function() {
+  for (let i in this) return false;
   return true;
 }
 // JavaのcomputeIfAbsent
@@ -163,7 +163,7 @@ function start() {
     ) return;
     debug("yes!");
     let queries = getUrlQueriesByUrl(url);
-    if (isEmptyObj(queries)) element.href += "?debug=true";
+    if (queries.isEmpty()) element.href += "?debug=true";
     else element.href += "&debug=true";
     debug('"queries": ' + JSON.stringify(queries));
   });
