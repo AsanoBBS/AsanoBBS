@@ -152,7 +152,7 @@ function debug(msg) {
 
 function start() {
 
-  wait(1000).then(() => debug(new DateFormat("SSS").format(new Date())));
+  wait(1000).then(() => debug(new DateFormat("SSS").format(new Date()))).catch(e => debug(e.message));
 
   // URLクエリ取得
   const urlQueries = getUrlQueries();
