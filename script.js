@@ -150,6 +150,7 @@ function debug(msg) {
 
 function start() {
 
+  debug("ｵﾊﾖｳ!");
   if (!document) debug("document isn't here");
   else if (!document.cookie) debug("document.cookie isn't here");
   else debug("document.cookie is " + document.cookie);
