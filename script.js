@@ -150,6 +150,7 @@ function debug(msg) {
 
 function start() {
 
+  debug("typeof cookie: " + typeof(document.cookie));
   debug("cookie: " + document.cookie);
   debug('"cookie": ' + JSON.stringify(document.cookieNow.reload(), null, 2));
 
@@ -166,11 +167,8 @@ function start() {
       (url.startsWith("//") && !url.startsWith("//asanobbs.github.io"))
     ) return;
     let queries = getUrlQueriesByUrl(url);
-    debug("typeof queries: " + typeof(queries));
-    debug("queries.isEmpty(): " + queries.isEmpty());
     if (queries.isEmpty()) element.href += "?debug=true";
     else element.href += "&debug=true";
-    debug('"queries": ' + JSON.stringify(queries));
   });
 
   // スマホチェック
