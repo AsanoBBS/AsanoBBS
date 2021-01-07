@@ -164,10 +164,9 @@ function start() {
       (url.startsWith("https://") && !url.startsWith("https://asanobbs.github.io")) ||
       (url.startsWith("//") && !url.startsWith("//asanobbs.github.io"))
     ) return;
-    debug("yes!");
     let queries = getUrlQueriesByUrl(url);
     debug("typeof queries: " + typeof(queries));
-    debug("queries.isEmpty: " + queries.isEmpty);
+    debug("queries.isEmpty(): " + queries.isEmpty());
     if (queries.isEmpty()) element.href += "?debug=true";
     else element.href += "&debug=true";
     debug('"queries": ' + JSON.stringify(queries));
