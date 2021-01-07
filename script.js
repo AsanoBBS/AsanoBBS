@@ -112,11 +112,11 @@ const addLineInnerHTML = (element, line) =>
   (element.innerHTML = addLine(element.innerHTML, line, "<br />"));
 // DateFormat
 Date.dateFormatPresets = {};
-/*Date.prototype.format = function(format) {
+Date.prototype.format = function(format) {
   return Date.dateFormatPresets
     .computeIfAbsent(format, f => new DateFormat(f))
     .format(this);
-}*/
+}
 // requestAnimationFrame
 const requestAnimationFrame =
   window.requestAnimationFrame || 
@@ -149,6 +149,7 @@ function debug(msg) {
 
 function start() {
 
+  debug("cookie: " + document.cookie);
   debug('"cookie": ' + JSON.stringify(document.cookieNow.reload(), null, 2));
 
   // URLクエリ取得
@@ -165,6 +166,8 @@ function start() {
     ) return;
     debug("yes!");
     let queries = getUrlQueriesByUrl(url);
+    debug("typeof queries: " + typeof(queries));
+    debug("queries.isEmpty: " + queries.isEmpty);
     if (queries.isEmpty()) element.href += "?debug=true";
     else element.href += "&debug=true";
     debug('"queries": ' + JSON.stringify(queries));
