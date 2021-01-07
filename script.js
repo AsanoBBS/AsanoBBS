@@ -219,7 +219,7 @@ function start() {
 
   // ログインチェック
   //uuid_token = Cookies.get("uuid_token");
-  //uuid_token = document.cookieNow.cookies.uuid_token;
+  uuid_token = document.cookieNow.cookies.uuid_token;
   if (uuid_token) login();
 
   // ページ毎
@@ -288,7 +288,7 @@ function login() {
     .catch(e => {
       uuid_token = undefined;
       //Cookies.remove("uuid_token");
-      //document.cookieNow.set("uuid_token", undefined);
+      document.cookieNow.set("uuid_token", undefined);
       debug("[failed to login] " + e.name + ": " + e.message);
       window.alert("ログインに失敗しました。");
     });
@@ -346,15 +346,15 @@ function requestGAS(where, queries, method = "GET", payload = {}) {
     payload
   ).then(res => {
     uuid_token = res.uuid_token;
-    //if (/*Cookies.get("uuid_token")*/document.cookieNow.cookies.uuid_token != uuid_token) {
-    //  try {  // 原因不明のエラー
-    //    //Cookies.set("uuid_token", uuid_token, { expires: 31 });
-    //    document.cookieNow.set("uuid_token", uuid_token, { "max-age": DAY(31) });
-    //  } catch(e) {
-    //    debug(`[requestGAS ERROR] ${e.name}: ${e.message}`);
-    //    debug(`uuid_token= ${uuid_token}: ${typeof(uuid_token)}`);
-    //  }
-    //}
+    if (/*Cookies.get("uuid_token")*/document.cookieNow.cookies.uuid_token != uuid_token) {
+      try {  // 原因不明のエラー
+        //Cookies.set("uuid_token", uuid_token, { expires: 31 });
+        document.cookieNow.set("uuid_token", uuid_token, { "max-age": DAY(31) });
+      } catch(e) {
+        debug(`[requestGAS ERROR] ${e.name}: ${e.message}`);
+        debug(`uuid_token= ${uuid_token}: ${typeof(uuid_token)}`);
+      }
+    }
     return res;
   });
 }
