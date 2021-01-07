@@ -148,21 +148,7 @@ function debug(msg) {
   console.log(msg);
 }
 
-window.onload = function start() {
-
-  document.getElementById("debug").innerHTML = "参りました";
-  debug("ｵﾊﾖｳ!");
-  if (!document) debug("document isn't here");
-  else if (!document.cookie) debug("document.cookie isn't here");
-  else debug("document.cookie is " + document.cookie);
-  new Promise(resolve => resolve()).then(() => {
-    debug("なぜに？ﾐｴﾙ-?");
-    debug("typeof cookie: " + typeof(document.cookie));
-    debug("cookie: " + document.cookie);
-    //debug('"cookie": ' + JSON.stringify(document.cookieNow.reload(), null, 2));
-  }).catch(e => {
-    debug(`${e.name}: ${e.message}`);
-  });
+function start() {
 
   // URLクエリ取得
   const urlQueries = getUrlQueries();
@@ -382,3 +368,6 @@ const AsanoBBSApis = {
     return requestGAS("profile", (user_id ? { "user_id": user_id } : {}), "GET");
   },
 }
+
+/* いざ実行！ */
+start();
