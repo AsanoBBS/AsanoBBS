@@ -201,7 +201,7 @@ function start() {
       debug("show!");
       if (navState === NavStates.HIDDEN) {
         document.getElementById("navshowdark").classList.remove("hide");
-        document.getElementsByTagName("nav").classList.remove("hide");
+        document.getElementsByTagName("nav")[0].classList.remove("hide");
         navAnimation(performance.now());
       }
       navState = NavStates.SHOW;
@@ -257,7 +257,7 @@ function navAnimation(time) {
     document.getElementsByClassName("mobilenav")[0].style.left = "100%";
     navState = NavStates.HIDDEN;
     document.getElementById("navshowdark").classList.add("hide");
-    document.getElementsByTagName("nav").classList.add("hide");
+    document.getElementsByTagName("nav")[0].classList.add("hide");
     before = null;
   } else if (navMove > 1) {
     navMove = 1;
