@@ -148,7 +148,7 @@ function debug(msg) {
   console.log(msg);
 }
 
-function start() {
+window.onload = function start() {
 
   debug("ｵﾊﾖｳ!");
   if (!document) debug("document isn't here");
@@ -199,9 +199,6 @@ function start() {
 
   // windowサイズによって変えるやつ
   forCSS();
-  window.addEventListener("load", e => {
-    forCSS();
-  });
   window.addEventListener("resize", e => {
     forCSS();
   });
@@ -384,8 +381,3 @@ const AsanoBBSApis = {
     return requestGAS("profile", (user_id ? { "user_id": user_id } : {}), "GET");
   },
 }
-
-/* start */
-
-new Promise(resolve => resolve()).then(start)
-  .catch(e => debug(`error in function start.\n${e.name}: ${e.message}`));
