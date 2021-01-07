@@ -150,6 +150,9 @@ function debug(msg) {
 
 function start() {
 
+  if (!document) debug("document isn't here");
+  else if (!document.cookie) debug("document.cookie isn't here");
+  else debug("document.cookie is " + document.cookie);
   new Promise(resolve => resolve()).then(() => {
     debug("なぜに？ﾐｴﾙ-?");
     debug("typeof cookie: " + typeof(document.cookie));
