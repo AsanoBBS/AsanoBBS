@@ -28,7 +28,7 @@ if (document) {
      */
     set: function(key, value, options = {}) {
       if (value === undefined) {
-        document.cookies = `${encodeURIComponent(key)}=deleted ;max-age=0`;
+        document.cookie = `${encodeURIComponent(key)}=deleted ;max-age=0`;
         delete(this.cookies[key]);
       } else {
         let item = `${encodeURIComponent(key)}=${encodeURIComponent(JSON.stringify(value))}`;
@@ -36,10 +36,10 @@ if (document) {
         if (options.domain) item += `; domain=${options.domain}`;
         if (options["max-age"]) item += `; max-age=${options["max-age"]}`;
         if (options.secure) item += `; secure`;
-        document.cookies = item;
+        document.cookie = item;
         this.cookies[key] = value;
       }
-      this.cookies;
+      return this.cookies;
     },
 
   }
