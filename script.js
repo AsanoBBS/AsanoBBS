@@ -71,8 +71,9 @@ const request = (url, method = "GET", reqBody = {}) => {
 }
 // object空判定
 Object.prototype.isEmpty = function() {
-  for (let i in this) return false;
-  return true;
+  //for (let i in this) return false;
+  //return true;
+  return Object.keys(this.length) === 0;
 }
 // JavaのcomputeIfAbsent
 Object.prototype.computeIfAbsent = function(key, mappingCallback) {
