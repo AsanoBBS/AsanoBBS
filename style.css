@@ -50,7 +50,6 @@ header {
   z-index: 16;
   background-color: #404040;
   color: white;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
   margin: 0;
   padding: 0;
   text-align: left;
@@ -93,7 +92,6 @@ nav {
   position: fixed;
   display: block;
   background-color: white;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
   overflow: auto;
   visibility: hidden;
 }
@@ -210,4 +208,8 @@ select {
   color: red;
   text-decoration: underline;
   font-weight: bold;
+}
+
+.box_shadow_normal {
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.8);
 }
