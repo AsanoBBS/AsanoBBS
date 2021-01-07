@@ -149,7 +149,7 @@ function debug(msg) {
 
 function start() {
 
-  debug('"cookie": ' + JSON.stringify(document.cookieNow.reload, null, 2));
+  debug('"cookie": ' + JSON.stringify(document.cookieNow.reload(), null, 2));
 
   // URLクエリ取得
   const urlQueries = getUrlQueries();
