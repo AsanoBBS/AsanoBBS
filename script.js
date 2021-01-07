@@ -151,8 +151,8 @@ function debug(msg) {
 function start() {
 
   debug("typeof cookie: " + typeof(document.cookie));
-  debug("cookie: " + document.cookie);
-  debug('"cookie": ' + JSON.stringify(document.cookieNow.reload(), null, 2));
+  //debug("cookie: " + document.cookie);
+  //debug('"cookie": ' + JSON.stringify(document.cookieNow.reload(), null, 2));
 
   // URLクエリ取得
   const urlQueries = getUrlQueries();
@@ -223,7 +223,7 @@ function start() {
 
   // ログインチェック
   //uuid_token = Cookies.get("uuid_token");
-  uuid_token = document.cookieNow.cookies.uuid_token;
+  //uuid_token = document.cookieNow.cookies.uuid_token;
   if (uuid_token) login();
 
   // ページ毎
@@ -292,7 +292,7 @@ function login() {
     .catch(e => {
       uuid_token = undefined;
       //Cookies.remove("uuid_token");
-      document.cookieNow.set("uuid_token", undefined);
+      //document.cookieNow.set("uuid_token", undefined);
       debug("[failed to login] " + e.name + ": " + e.message);
       window.alert("ログインに失敗しました。");
     });
@@ -353,7 +353,7 @@ function requestGAS(where, queries, method = "GET", payload = {}) {
     if (/*Cookies.get("uuid_token")*/document.cookieNow.cookies.uuid_token != uuid_token) {
       try {  // 原因不明のエラー
         //Cookies.set("uuid_token", uuid_token, { expires: 31 });
-        document.cookieNow.set("uuid_token", uuid_token, { "max-age": DAY(31) });
+        //document.cookieNow.set("uuid_token", uuid_token, { "max-age": DAY(31) });
       } catch(e) {
         debug(`[requestGAS ERROR] ${e.name}: ${e.message}`);
         debug(`uuid_token= ${uuid_token}: ${typeof(uuid_token)}`);
