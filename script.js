@@ -73,7 +73,7 @@ const request = (url, method = "GET", reqBody = {}) => {
 Object.prototype.isEmpty = function() {
   //for (let i in this) return false;
   //return true;
-  return Object.keys(this.length) === 0;
+  return Object.keys(this).length === 0;
 }
 // JavaのcomputeIfAbsent
 Object.prototype.computeIfAbsent = function(key, mappingCallback) {
