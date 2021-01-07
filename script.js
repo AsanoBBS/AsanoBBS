@@ -350,15 +350,15 @@ function requestGAS(where, queries, method = "GET", payload = {}) {
     payload
   ).then(res => {
     uuid_token = res.uuid_token;
-    if (/*Cookies.get("uuid_token")*/document.cookieNow.cookies.uuid_token != uuid_token) {
-      try {  // 原因不明のエラー
-        //Cookies.set("uuid_token", uuid_token, { expires: 31 });
-        //document.cookieNow.set("uuid_token", uuid_token, { "max-age": DAY(31) });
-      } catch(e) {
-        debug(`[requestGAS ERROR] ${e.name}: ${e.message}`);
-        debug(`uuid_token= ${uuid_token}: ${typeof(uuid_token)}`);
-      }
-    }
+    //if (/*Cookies.get("uuid_token")*/document.cookieNow.cookies.uuid_token != uuid_token) {
+    //  try {  // 原因不明のエラー
+    //    //Cookies.set("uuid_token", uuid_token, { expires: 31 });
+    //    document.cookieNow.set("uuid_token", uuid_token, { "max-age": DAY(31) });
+    //  } catch(e) {
+    //    debug(`[requestGAS ERROR] ${e.name}: ${e.message}`);
+    //    debug(`uuid_token= ${uuid_token}: ${typeof(uuid_token)}`);
+    //  }
+    //}
     return res;
   });
 }
