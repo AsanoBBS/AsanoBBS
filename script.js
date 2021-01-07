@@ -167,6 +167,9 @@ function start() {
     else element.href += "&debug=true";
   });
 
+  // Cookie
+  debug('"cookies": ' + JSON.stringify(document.cookieNow.cookies, null, 2));
+
   // スマホチェック
   mobile = navigator.userAgent.match(/iPhone|Android.+Mobile/);
   if (mobile) {   // スマホ
