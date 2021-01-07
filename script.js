@@ -387,5 +387,5 @@ const AsanoBBSApis = {
 
 /* start */
 
-wait(0).then(start)
+new Promise(resolve => resolve()).then(start)
   .catch(e => debug(`error in function start.\n${e.name}: ${e.message}`));
