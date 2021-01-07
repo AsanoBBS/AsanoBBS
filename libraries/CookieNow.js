@@ -2,7 +2,7 @@
 
 if (document) {
 
-  document.prototype.cookieNow = {
+  document.cookieNow = {
 
     cookies: {},
 
