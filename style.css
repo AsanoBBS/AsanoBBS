@@ -50,7 +50,7 @@ header {
   z-index: 16;
   background-color: #404040;
   color: white;
-  box-shadow: 0px 0px 4px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.5);
   margin: 0;
   padding: 0;
   text-align: left;
@@ -93,7 +93,7 @@ nav {
   position: fixed;
   display: block;
   background-color: white;
-  box-shadow: 0px 0px 4px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.5);
   overflow: auto;
   visibility: hidden;
 }
