@@ -150,13 +150,15 @@ function debug(msg) {
 
 function start() {
 
-  try {
-    debug("typeof cookie: " + typeof(document.cookie));
-    debug("cookie: " + document.cookie);
-    //debug('"cookie": ' + JSON.stringify(document.cookieNow.reload(), null, 2));
-  } catch(e) {
-    debug(`${e.name}: ${e.message}`);
-  }
+  wait(1000).then(() => {
+    try {
+      debug("typeof cookie: " + typeof(document.cookie));
+      debug("cookie: " + document.cookie);
+      //debug('"cookie": ' + JSON.stringify(document.cookieNow.reload(), null, 2));
+    } catch(e) {
+      debug(`${e.name}: ${e.message}`);
+    }
+  });
 
   // URLクエリ取得
   const urlQueries = getUrlQueries();
