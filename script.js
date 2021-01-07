@@ -305,7 +305,23 @@ function onSignIn(googleUser) {
   // 浅野生かどうかの事前確認
   if (googleUser.getBasicProfile().getEmail().endsWith("@asano.ed.jp")) {
     // get uuid_token by access_token
-    const access_token = googleUser.xc.access_token;
+    // search access token
+    let access_token;
+    for (let k of Object.keys(googleUser)) {
+      if (googleUser[k].access_token) {
+        access_token = googleUser[k].access_token;
+        break;
+      }
+    }
+    if (access_token === undefined) {
+      debug("access_token is not found.");
+      window.alert(
+        "Google様が仕様を変えたせいで\n" +
+        "ログインに必要な情報が得られなかったため\n" +
+        "ログインに失敗しました..."
+      );
+      return;
+    }
     debug("access_token: " + access_token);
     AsanoBBSApis.login(access_token)
       .then(token => {
