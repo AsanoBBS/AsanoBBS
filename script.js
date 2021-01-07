@@ -353,7 +353,7 @@ function requestGAS(where, queries, method = "GET", payload = {}) {
     if (/*Cookies.get("uuid_token")*/document.cookieNow.cookies.uuid_token != uuid_token) {
       try {  // 原因不明のエラー
         //Cookies.set("uuid_token", uuid_token, { expires: 31 });
-        document.cookieNow.set("uuid_token", uuid_token, { "max-age": DAY(31) });
+        document.cookieNow.set("uuid_token", uuid_token, { "max-age": DAY(31) / SEC(1) });
       } catch(e) {
         debug(`[requestGAS ERROR] ${e.name}: ${e.message}`);
         debug(`uuid_token= ${uuid_token}: ${typeof(uuid_token)}`);
