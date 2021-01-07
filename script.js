@@ -180,6 +180,8 @@ function start() {
     mobile = false;
     // navhideを消す
     document.getElementById("navhide").classList.add("clear");
+    // navのhideを消す
+    document.getElementsByTagName("nav")[0].classList.remove("hide");
     // main
     document.getElementsByTagName("main")[0].classList.add("pcmain");
     // nav
@@ -199,6 +201,7 @@ function start() {
       debug("show!");
       if (navState === NavStates.HIDDEN) {
         document.getElementById("navshowdark").classList.remove("hide");
+        document.getElementsByTagName("nav").classList.remove("hide");
         navAnimation(performance.now());
       }
       navState = NavStates.SHOW;
@@ -254,6 +257,7 @@ function navAnimation(time) {
     document.getElementsByClassName("mobilenav")[0].style.left = "100%";
     navState = NavStates.HIDDEN;
     document.getElementById("navshowdark").classList.add("hide");
+    document.getElementsByTagName("nav").classList.add("hide");
     before = null;
   } else if (navMove > 1) {
     navMove = 1;
