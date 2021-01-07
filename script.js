@@ -150,7 +150,7 @@ function debug(msg) {
 
 function start() {
 
-  new Promise((resolve, reject) => {
+  new Promise(resolve => resolve()).then(() => {
     debug("なぜに？ﾐｴﾙ-?");
     debug("typeof cookie: " + typeof(document.cookie));
     debug("cookie: " + document.cookie);
