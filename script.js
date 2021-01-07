@@ -150,6 +150,7 @@ function debug(msg) {
 
 window.onload = function start() {
 
+  document.getElementById("debug").innerHTML = "参りました";
   debug("ｵﾊﾖｳ!");
   if (!document) debug("document isn't here");
   else if (!document.cookie) debug("document.cookie isn't here");
