@@ -185,6 +185,19 @@ select {
   font-size: 16px;
 }
 
+/* DO NOT USE IE */
+#DO_NOT_USE_IE {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  down: 10%;
+  padding: 10% 0%;
+  text-align: center;
+  background-color: rgb(191, 64, 64);
+  background-color: rgba(191, 64, 64, 0.9);
+  z-index: 256;
+}
 
 /* 万能class */
 
