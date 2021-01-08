@@ -180,8 +180,6 @@ function start() {
     mobile = false;
     // navhideを消す
     document.getElementById("navhide").classList.add("clear");
-    // navのhideを消す
-    document.getElementsByTagName("nav")[0].classList.remove("hide");
     // main
     document.getElementsByTagName("main")[0].classList.add("pcmain");
     // nav
@@ -274,7 +272,11 @@ function login() {
       }
       users.users[myProfile.id] = myProfile;
       // html書き換え
-      if (mobile) document.getElementById("headericon").classList.remove("hide2");
+      if (mobile) {
+        document.getElementById("headericon").classList.remove("hide2");
+      } else {
+        document.getEleemntByTagName("nav")[0].classList.remove("hide");
+      }
       htmlForEach(
         document.getElementsByClassName("myicon"),
         element => {
