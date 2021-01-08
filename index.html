@@ -111,9 +111,9 @@
       var userAgent = window.navigator.userAgent.toLowerCase();
       if (
         userAgent.indexOf("msie") != -1 ||
-        userAgent.indexOf("trident") != -1
+        userAgent.indexOf("trident") != -1 || true
       ) {
-        
+        document.getElementById("DO_NOT_USE_IE").style.visibility = "visible";
       }
       // -->
     </script>
