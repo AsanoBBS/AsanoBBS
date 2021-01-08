@@ -188,18 +188,26 @@ select {
 /* DO NOT USE IE */
 #DO_NOT_USE_IE {
   position: fixed;
-  top: 10%;
-  left: 10%;
-  right: 10%;
-  bottom: 10%;
-  padding: 10% 0%;
+  top: 6.25%;
+  left: 6.25%;
+  right: 6.25%;
+  bottom: 6.25%;
+  padding: 12.5% 6.25%;
+  overflow: auto;
   text-align: center;
   color: #FFFFFF;
   background-color: rgb(191, 64, 64);
   background-color: rgba(191, 64, 64, 0.9);
   z-index: 256;
   a {
-    
+    display: block;
+    margin: 8px auto;
+    padding: 8px 0px;
+    width: 50%;
+    border: solid 1px #fff;
+  }
+  a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
   }
 }
 
