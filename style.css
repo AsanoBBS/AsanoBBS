@@ -199,8 +199,11 @@ select {
   background-color: rgb(191, 64, 64);
   background-color: rgba(191, 64, 64, 0.9);
   z-index: 256;
+  h1 {
+    margin: 8px auto;
+  }
   a {
-    display: block;
+    display: inline-block;
     margin: 8px auto;
     padding: 8px 0px;
     width: 50%;
