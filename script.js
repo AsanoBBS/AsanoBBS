@@ -189,12 +189,6 @@ function start() {
   }
   debug("mobile: " + mobile);
 
-  // windowサイズによって変えるやつ
-  forCSS();
-  window.addEventListener("resize", e => {
-    forCSS();
-  });
-
   // メニュー
   const onNavShow = () => {
     if (mobile) {
@@ -290,9 +284,11 @@ function login() {
       );
     })
     .catch(e => {
-      uuid_token = undefined;
-      //Cookies.remove("uuid_token");
-      document.cookieNow.set("uuid_token", undefined);
+      if (`${e.code}`[0] === "4") {
+        uuid_token = undefined;
+        //Cookies.remove("uuid_token");
+        document.cookieNow.set("uuid_token", undefined);
+      }
       debug("[failed to login] " + e.name + ": " + e.message);
       window.alert("ログインに失敗しました。");
     });
@@ -304,7 +300,6 @@ function onSignIn(googleUser) {
   debug('"googleUser": ' + JSON.stringify(googleUser, null, 2));
   // 浅野生かどうかの事前確認
   if (googleUser.getBasicProfile().getEmail().endsWith("@asano.ed.jp")) {
-    // get uuid_token by access_token
     // search access token
     let access_token;
     for (let k of Object.keys(googleUser)) {
@@ -323,6 +318,7 @@ function onSignIn(googleUser) {
       return;
     }
     debug("access_token: " + access_token);
+    // get uuid_token by access_token
     AsanoBBSApis.login(access_token)
       .then(token => {
         debug("uuid_token: " + token);
@@ -340,10 +336,6 @@ function onSignIn(googleUser) {
   // sign out
   gapi.auth2.getAuthInstance().signOut()
     .then(() => debug("g-signin2 signed out"));
-}
-
-function forCSS() {
-  
 }
 
 // GAS関係
@@ -367,13 +359,8 @@ function requestGAS(where, queries, method = "GET", payload = {}) {
   ).then(res => {
     uuid_token = res.uuid_token;
     if (/*Cookies.get("uuid_token")*/document.cookieNow.cookies.uuid_token != uuid_token) {
-      try {  // 原因不明のエラー
-        //Cookies.set("uuid_token", uuid_token, { expires: 31 });
-        document.cookieNow.set("uuid_token", uuid_token, { "max-age": DAY(31) / SEC(1) });
-      } catch(e) {
-        debug(`[requestGAS ERROR] ${e.name}: ${e.message}`);
-        debug(`uuid_token= ${uuid_token}: ${typeof(uuid_token)}`);
-      }
+      //Cookies.set("uuid_token", uuid_token, { expires: 31 });
+      document.cookieNow.set("uuid_token", uuid_token, { "max-age": DAY(31) / SEC(1) });
     }
     return res;
   });
