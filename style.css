@@ -201,12 +201,12 @@ select {
   z-index: 256;
 }
 #DO_NOT_USE_IE h1 {
-  margin: 8px auto;
+  margin: 16px auto;
 }
 #DO_NOT_USE_IE a {
   display: inline-block;
-  margin: 8px auto;
-  padding: 8px 0px;
+  margin: 16px 0px;
+  padding: 8px auto;
   width: 50%;
   border: solid 1px #fff;
 }
