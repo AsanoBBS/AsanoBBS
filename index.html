@@ -91,6 +91,16 @@
 
     </main>
 
+    <!-- Google SignIn2 のリダイレクト先調整 -->
+    <script>
+      <!--;
+      Array.prototype.forEach.call(
+        document.getElementsByClassName("g-signin2"),
+        gSignIn2 => gSignIn2["data-redirecturi"] = location.href;
+      );
+      // -->
+    </script>
+
     <!-- まだIE使ってんの? ﾌﾟ-ｸｽｸｽ -->
     <div id="DO_NOT_USE_IE">
       <h1>Internet Explorer、ダメ絶対！</h1>
