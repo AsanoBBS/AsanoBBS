@@ -336,8 +336,8 @@ function onSignIn(googleUser) {
     window.alert("浅野のgoogleアカウントでログインしてください");
   }
   // sign out
-  //gapi.auth2.getAuthInstance().signOut()
-  //  .then(() => debug("g-signin2 signed out"));
+  gapi.auth2.getAuthInstance().signOut()
+    .then(() => debug("g-signin2 signed out"));
 }
 
 // GAS関係
