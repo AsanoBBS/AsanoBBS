@@ -275,7 +275,7 @@ function login() {
       if (mobile) {
         document.getElementById("headericon").classList.remove("hide2");
       } else {
-        document.getEleemntByTagName("nav")[0].classList.remove("hide");
+        document.getEleemntsByTagName("nav")[0].classList.remove("hide");
       }
       htmlForEach(
         document.getElementsByClassName("myicon"),
