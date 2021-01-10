@@ -143,13 +143,13 @@ nav {
     " icon email ";
 }
 #navmyprofile.myicon {
-  
+  grid-area: icon;
 }
 #navmyprofile.myname {
-  
+  grid-area: name;
 }
 #navmyprofile.myemail {
-  
+  grid-area: email;
 }*/
 
 /* icon */
