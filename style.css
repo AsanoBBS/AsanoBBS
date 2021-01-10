@@ -138,9 +138,6 @@ nav {
   display: grid;
   grid-templete-rows: 28px 20px;
   grid-templete-columns: 48px 1fr;
-  grid-templete-areas:
-    "icon name "
-    "icon email";
   width: auto;
   margin: 4px;
   padding: 4px;
@@ -148,15 +145,18 @@ nav {
   background-color: gainsboro;
 }
 #navmyprofile .myicon {
-  grid-area: icon;
+  grid-row: 1 / span 2;
+  grid-column: 1;
   
 }
 #navmyprofile .myname {
-  grid-area: name;
+  grid-row: 1;
+  grid-column: 2;
   
 }
 #navmyprofile .myemail {
-  grid-area: email;
+  grid-row: 2;
+  grid-column: 2;
   
   color: gray;
 }
