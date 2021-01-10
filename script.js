@@ -199,7 +199,7 @@ function start() {
       navState = NavStates.SHOW;
     }
   };
-  document.getElementById("headericon").onclick = onNavShow;
+  document.getElementById("header_icon").onclick = onNavShow;
   const onNavHide = () => {
     if (mobile) {
       debug("hide!");
@@ -273,7 +273,7 @@ function login() {
       users.users[myProfile.id] = myProfile;
       // html書き換え
       if (mobile) {
-        document.getElementById("headericon").classList.remove("hide2");
+        document.getElementById("header_icon").classList.remove("hide2");
       } else {
         document.getEleemntsByTagName("nav")[0].classList.remove("hide");
       }
