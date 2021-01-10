@@ -134,23 +134,32 @@ nav {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 23;
 }
-/*#navmyprofile {
+#navmyprofile {
   display: grid;
   grid-templete-rows: 28px 20px;
   grid-templete-columns: 48px 1fr;
   grid-templete-areas:
     " icon name  "
     " icon email ";
+  width: auto;
+  margin: 4px;
+  padding: 4px;
+  
+  background-color: gainsboro;
 }
 #navmyprofile.myicon {
   grid-area: icon;
+  padding: auto;
 }
 #navmyprofile.myname {
   grid-area: name;
+  
 }
 #navmyprofile.myemail {
   grid-area: email;
-}*/
+  
+  color: gray;
+}
 
 /* icon */
 img.icon {
