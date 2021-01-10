@@ -178,8 +178,8 @@ function start() {
     document.getElementsByTagName("nav")[0].classList.add("mobilenav");
   } else {        // PC
     mobile = false;
-    // navhideを消す
-    document.getElementById("navhide").classList.add("clear");
+    // nav_hideを消す
+    document.getElementById("nav_hide").classList.add("clear");
     // main
     document.getElementsByTagName("main")[0].classList.add("pcmain");
     // nav
@@ -209,7 +209,7 @@ function start() {
       navState = NavStates.HIDE;
     }
   };
-  document.getElementById("navhide").onclick = onNavHide;
+  document.getElementById("nav_hide").onclick = onNavHide;
   document.getElementById("navshowdark").onclick = onNavHide;
 
   // ログインチェック
