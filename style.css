@@ -134,6 +134,18 @@ nav {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 23;
 }
+#navmyprofile {
+  
+}
+#navmyprofile.myicon {
+  
+}
+#navmyprofile.myname {
+  
+}
+#navmyprofile.myemail {
+  
+}
 
 /* icon */
 img.icon {
@@ -185,7 +197,7 @@ select {
   font-size: 16px;
 }
 
-/* DO NOT USE IE */
+/* DO NOT USE INTERNET EXPLORER */
 #DO_NOT_USE_IE {
   visibility: hidden;
   position: fixed;
