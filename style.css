@@ -138,6 +138,9 @@ nav {
   display: grid;
   grid-templete-rows: 28px 20px;
   grid-templete-columns: 48px 1fr;
+  grid-templete-areas:
+    " icon name  "
+    " icon email ";
 }
 #navmyprofile.myicon {
   
