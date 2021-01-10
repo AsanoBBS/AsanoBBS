@@ -147,19 +147,19 @@ nav {
 #navmyprofile .myicon {
   grid-row: 1 / span 2;
   grid-column: 1;
-  padding: 4px;
+  margin: 4px;
 }
 #navmyprofile .myname {
   grid-row: 1;
   grid-column: 2;
-  padding: 4px;
+  margin: 4px;
   font-size: 20px;
 }
 #navmyprofile .myemail {
   grid-row: 2;
   grid-column: 2;
-  padding: 4px;
-  font-size: 16px;
+  margin: 4px;
+  font-size: 12px;
   color: gray;
 }
 
