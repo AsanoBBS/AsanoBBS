@@ -93,6 +93,7 @@ nav {
   display: block;
   background-color: white;
   overflow: auto;
+  text-align: left;
   visibility: hidden;
 }
 .pcnav {
@@ -136,7 +137,7 @@ nav {
 }
 #navmyprofile {
   display: grid;
-  grid-templete-rows: 28px 20px;
+  grid-templete-rows: 26px 22px;
   grid-templete-columns: 48px 1fr;
   width: auto;
   margin: 4px;
@@ -153,13 +154,13 @@ nav {
   grid-row: 1;
   grid-column: 2;
   margin: 4px;
-  font-size: 20px;
+  font-size: 9px;
 }
 #navmyprofile .myemail {
   grid-row: 2;
   grid-column: 2;
   margin: 4px;
-  font-size: 12px;
+  font-size: 7px;
   color: gray;
 }
 
