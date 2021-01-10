@@ -147,15 +147,15 @@ nav {
   
   background-color: gainsboro;
 }
-#navmyprofile.myicon {
+#navmyprofile .myicon {
   grid-area: icon;
   padding: auto;
 }
-#navmyprofile.myname {
+#navmyprofile .myname {
   grid-area: name;
   
 }
-#navmyprofile.myemail {
+#navmyprofile .myemail {
   grid-area: email;
   
   color: gray;
