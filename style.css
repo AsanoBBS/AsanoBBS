@@ -134,8 +134,10 @@ nav {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 23;
 }
-#navmyprofile {
-  
+/*#navmyprofile {
+  display: grid;
+  grid-templete-rows: 28px 20px;
+  grid-templete-columns: 48px 1fr;
 }
 #navmyprofile.myicon {
   
@@ -145,7 +147,7 @@ nav {
 }
 #navmyprofile.myemail {
   
-}
+}*/
 
 /* icon */
 img.icon {
