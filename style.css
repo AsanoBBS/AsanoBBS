@@ -173,6 +173,8 @@ img.icon {
   object-fit: cover;
   border-radius: 50%;
   -webkit-touch-callout: none;
+  /* テスト用 */
+  background-color: green;
 }
 img.icon:hover {
   opacity: 0.5;
