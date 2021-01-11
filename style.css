@@ -171,7 +171,7 @@ img.icon {
   width: 40px;
   hight: 40px;
   object-fit: cover;
-  border-radius: 50%;
+  /*border-radius: 50%;*/
   -webkit-touch-callout: none;
   /* テスト用 */
   background-color: green;
