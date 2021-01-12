@@ -70,6 +70,8 @@ header span {
 }
 #header_icon {
   right: 0;
+  /* テスト用 */
+  background-color: green;
 }
 
 /* main */
@@ -149,6 +151,8 @@ nav {
   grid-row: 1 / span 2;
   grid-column: 1;
   margin: 4px;
+  /* テスト用 */
+  background-color: green;
 }
 #nav_myprofile_name {
   grid-row: 1;
@@ -171,10 +175,8 @@ img.icon {
   width: 40px;
   hight: 40px;
   object-fit: cover;
-  /*border-radius: 50%;*/
+  border-radius: 50%;
   -webkit-touch-callout: none;
-  /* テスト用 */
-  background-color: green;
 }
 img.icon:hover {
   opacity: 0.5;
